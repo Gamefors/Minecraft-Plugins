@@ -5,6 +5,8 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class Main extends JavaPlugin {
 
+    public static String pluginPrefix = "§9[GMF]§f";
+
     @Override
     public void onEnable() {
         super.onEnable();
@@ -16,6 +18,7 @@ public class Main extends JavaPlugin {
         getCommand("lobby").setExecutor(new LobbyCommand(this));
         getCommand("l").setExecutor(new LobbyCommand(this));
         getCommand("hub").setExecutor(new LobbyCommand(this));
+        getCommand("pvp").setExecutor(new PvPCommand(getServer().getWorld("world")));
     }
 
     private void registerOutGoingPluginChannels() {

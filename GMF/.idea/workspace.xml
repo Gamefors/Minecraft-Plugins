@@ -7,34 +7,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0e3babcb-ede7-45bd-8e8b-5cbe6736a865" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../Lobby/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Lobby/.idea/artifacts/Lobby.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Lobby/.idea/libraries/spigot_1_15_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Lobby/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Lobby/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Lobby/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Lobby/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Lobby/Lobby.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Lobby/src/com/gmf/lobby/events/inventory/InventoryClick.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Lobby/src/com/gmf/lobby/events/player/PlayerDropItem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Lobby/src/com/gmf/lobby/events/player/PlayerInteract.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Lobby/src/com/gmf/lobby/events/player/PlayerJoin.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Lobby/src/com/gmf/lobby/main/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Lobby/src/plugin.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../NoPhantoms/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../NoPhantoms/.idea/artifacts/NoPhantoms.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../NoPhantoms/.idea/libraries/spigot_1_15_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../NoPhantoms/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../NoPhantoms/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../NoPhantoms/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../NoPhantoms/NoPhantoms.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../NoPhantoms/out/artifacts/NoPhantoms/NoPhantoms.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../NoPhantoms/out/production/NoPhantoms/com/GMF/nophantoms/main/Main.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../NoPhantoms/out/production/NoPhantoms/plugin.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../NoPhantoms/src/com/gmf/nophantoms/main/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../NoPhantoms/src/plugin.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../spigot-1.15.2.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Gost91/src/com/gmf/gost91/commands/PvPCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Gost91/out/artifacts/Gost91/Gost91.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../Gost91/out/artifacts/Gost91/Gost91.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Gost91/out/production/Gost91/com/gmf/gost91/main/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Gost91/out/production/Gost91/com/gmf/gost91/main/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Gost91/out/production/Gost91/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../Gost91/out/production/Gost91/plugin.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Gost91/src/com/gmf/gost91/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Gost91/src/com/gmf/gost91/main/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Gost91/src/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../Gost91/src/plugin.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lobby/out/artifacts/Lobby/Lobby.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../Lobby/out/artifacts/Lobby/Lobby.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lobby/out/production/Lobby/com/gmf/lobby/events/player/PlayerInteract.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Lobby/out/production/Lobby/com/gmf/lobby/events/player/PlayerInteract.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lobby/src/com/gmf/lobby/events/player/PlayerInteract.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Lobby/src/com/gmf/lobby/events/player/PlayerInteract.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

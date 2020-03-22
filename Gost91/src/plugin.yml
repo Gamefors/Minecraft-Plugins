@@ -13,4 +13,5 @@ commands:
   lobby:
   l:
   hub:
+  pvp:
 permissions:
