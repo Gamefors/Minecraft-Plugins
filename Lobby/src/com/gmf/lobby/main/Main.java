@@ -1,5 +1,6 @@
 package com.gmf.lobby.main;
 
+import com.gmf.lobby.events.entity.EntityDamage;
 import com.gmf.lobby.events.entity.EntityPickupItem;
 import com.gmf.lobby.events.inventory.InventoryClick;
 import com.gmf.lobby.events.player.PlayerDropItem;
@@ -18,15 +19,16 @@ public class Main extends JavaPlugin {
         super.onEnable();
         setWorldSettings();
         registerEvents();
-        registerCommands();
         registerOutGoingPluginChannels();
     }
+
     private void registerOutGoingPluginChannels() {
         Bukkit.getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
     }
 
     private void setWorldSettings() {
         World lobbyWorld = server.getWorld("world");
+        lobbyWorld.setPVP(false);
         lobbyWorld.setGameRule(GameRule.DO_DAYLIGHT_CYCLE, false);
         lobbyWorld.setTime(1000);
         lobbyWorld.setGameRule(GameRule.ANNOUNCE_ADVANCEMENTS, false);
@@ -50,6 +52,7 @@ public class Main extends JavaPlugin {
         lobbyWorld.setGameRule(GameRule.DROWNING_DAMAGE,false);
     }
 
+
     private void registerEvents() {
         PluginManager pluginManager = server.getPluginManager();
         //player
@@ -58,12 +61,9 @@ public class Main extends JavaPlugin {
         pluginManager.registerEvents(new PlayerJoin(), this);
         //entity
         pluginManager.registerEvents(new EntityPickupItem(), this);
+        pluginManager.registerEvents(new EntityDamage(),this);
         //inventory
         pluginManager.registerEvents(new InventoryClick(this), this);
-
-    }
-
-    private void registerCommands() {
 
     }
 

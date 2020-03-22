@@ -1,0 +1,16 @@
+name: Gost91
+version: 1.0
+description: Gost91 Plugin for Gost91 Server
+author: GMF
+authors: [GMF]
+website: http://5.189.129.153/
+
+main: com.gmf.gost91.main.Main
+database: false
+depend:
+
+commands:
+  lobby:
+  l:
+  hub:
+permissions:
