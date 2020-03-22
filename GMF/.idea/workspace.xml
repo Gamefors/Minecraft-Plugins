@@ -6,8 +6,36 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e3babcb-ede7-45bd-8e8b-5cbe6736a865" name="Default Changelist" comment="" />
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <list default="true" id="0e3babcb-ede7-45bd-8e8b-5cbe6736a865" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../Lobby/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lobby/.idea/artifacts/Lobby.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lobby/.idea/libraries/spigot_1_15_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lobby/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lobby/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lobby/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lobby/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lobby/Lobby.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lobby/src/com/gmf/lobby/events/inventory/InventoryClick.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lobby/src/com/gmf/lobby/events/player/PlayerDropItem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lobby/src/com/gmf/lobby/events/player/PlayerInteract.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lobby/src/com/gmf/lobby/events/player/PlayerJoin.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lobby/src/com/gmf/lobby/main/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lobby/src/plugin.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NoPhantoms/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NoPhantoms/.idea/artifacts/NoPhantoms.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NoPhantoms/.idea/libraries/spigot_1_15_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NoPhantoms/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NoPhantoms/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NoPhantoms/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NoPhantoms/NoPhantoms.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NoPhantoms/out/artifacts/NoPhantoms/NoPhantoms.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NoPhantoms/out/production/NoPhantoms/com/GMF/nophantoms/main/Main.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NoPhantoms/out/production/NoPhantoms/plugin.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NoPhantoms/src/com/gmf/nophantoms/main/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NoPhantoms/src/plugin.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spigot-1.15.2.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -20,25 +48,22 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
   <component name="ProjectId" id="1ZGEpvbznrHDgFD9Xp8svbrL5Tr" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/spigot-1.8.8.jar!/" />
-    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -52,5 +77,24 @@
       <updated>1584457217274</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="797" y="125" key="SettingsEditor" timestamp="1584894163267">
+      <screen x="0" y="0" width="2048" height="1122" />
+    </state>
+    <state x="797" y="125" key="SettingsEditor/0.0.2048.1122/2560.363.1920.1050@0.0.2048.1122" timestamp="1584894163267" />
   </component>
 </project>
