@@ -10,7 +10,5 @@ database: false
 depend:
 
 commands:
-  ovoaccept:
-  ovodecline:
 
 permissions:
