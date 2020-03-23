@@ -1,6 +1,6 @@
-package com.gmf.oneversionone.commands;
+package com.gmf.oneversusone.commands;
 
-import com.gmf.oneversionone.main.Main;
+import com.gmf.oneversusone.main.Main;
 import org.bukkit.Bukkit;
 import org.bukkit.GameRule;
 import org.bukkit.Location;

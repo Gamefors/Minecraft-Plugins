@@ -5,7 +5,7 @@ author: GMF
 authors: [GMF]
 website: http://5.189.129.153/
 
-main: com.gmf.oneversionone.main.Main
+main: com.gmf.oneversusone.main.Main
 database: false
 depend:
 

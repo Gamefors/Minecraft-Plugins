@@ -1,6 +1,6 @@
-package com.gmf.oneversionone.events.player;
+package com.gmf.oneversusone.events.player;
 
-import com.gmf.oneversionone.main.Main;
+import com.gmf.oneversusone.main.Main;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.event.EventHandler;

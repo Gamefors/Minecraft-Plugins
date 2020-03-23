@@ -1,17 +1,15 @@
-package com.gmf.oneversionone.main;
+package com.gmf.oneversusone.main;
 
-import com.gmf.oneversionone.commands.OvoAcceptCommand;
-import com.gmf.oneversionone.commands.OvoDeclineCommand;
-import com.gmf.oneversionone.events.entity.PlayerInteractEntity;
-import com.gmf.oneversionone.events.player.PlayerDeath;
-import com.gmf.oneversionone.events.player.PlayerMove;
+import com.gmf.oneversusone.commands.OvoAcceptCommand;
+import com.gmf.oneversusone.commands.OvoDeclineCommand;
+import com.gmf.oneversusone.events.entity.PlayerInteractEntity;
+import com.gmf.oneversusone.events.player.PlayerDeath;
+import com.gmf.oneversusone.events.player.PlayerMove;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 public class Main extends JavaPlugin {
 
