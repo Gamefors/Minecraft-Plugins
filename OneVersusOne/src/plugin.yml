@@ -1,0 +1,16 @@
+name: OneVersusOne
+version: 1.0
+description: A OneVersusOne plugin
+author: GMF
+authors: [GMF]
+website: http://5.189.129.153/
+
+main: com.gmf.oneversionone.main.Main
+database: false
+depend:
+
+commands:
+  ovoaccept:
+  ovodecline:
+
+permissions:

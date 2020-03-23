@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="OneVersusOne">
+    <output-path>$PROJECT_DIR$/out/artifacts/OneVersusOne</output-path>
+    <root id="archive" name="OneVersusOne.jar">
+      <element id="module-output" name="OneVersusOne" />
+    </root>
+  </artifact>
+</component>
