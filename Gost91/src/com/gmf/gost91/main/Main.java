@@ -19,6 +19,7 @@ public class Main extends JavaPlugin {
         getCommand("l").setExecutor(new LobbyCommand(this));
         getCommand("hub").setExecutor(new LobbyCommand(this));
         getCommand("pvp").setExecutor(new PvPCommand(getServer().getWorld("world")));
+        getCommand("nick").setExecutor(new NickCommand());
     }
 
     private void registerOutGoingPluginChannels() {

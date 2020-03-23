@@ -7,16 +7,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0e3babcb-ede7-45bd-8e8b-5cbe6736a865" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../Gost91/src/com/gmf/gost91/commands/PvPCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Gost91/src/com/gmf/gost91/commands/NickCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Gost91/out/artifacts/Gost91/Gost91.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../Gost91/out/artifacts/Gost91/Gost91.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Gost91/out/production/Gost91/com/gmf/gost91/main/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Gost91/out/production/Gost91/com/gmf/gost91/main/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Gost91/out/production/Gost91/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../Gost91/out/production/Gost91/plugin.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Gost91/src/com/gmf/gost91/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Gost91/src/com/gmf/gost91/main/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Gost91/src/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../Gost91/src/plugin.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Lobby/out/artifacts/Lobby/Lobby.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../Lobby/out/artifacts/Lobby/Lobby.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Lobby/out/production/Lobby/com/gmf/lobby/events/player/PlayerInteract.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Lobby/out/production/Lobby/com/gmf/lobby/events/player/PlayerInteract.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Lobby/src/com/gmf/lobby/events/player/PlayerInteract.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Lobby/src/com/gmf/lobby/events/player/PlayerInteract.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
