@@ -1,0 +1,17 @@
+name: Creative
+version: 1.0
+description: Creative Plugin for Creative Server
+author: GMF
+authors: [GMF]
+website: http://5.189.129.153/
+
+main: com.gmf.creative.main.Main
+database: false
+depend:
+
+commands:
+  lobby:
+  l:
+  hub:
+
+permissions:

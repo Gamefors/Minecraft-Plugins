@@ -7,14 +7,9 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import java.util.HashMap;
-
 public class NickCommand implements CommandExecutor {
 
-    public HashMap<String, String> nickedPlayers = new HashMap<>();
-
     private void setPlayerName(Player p, String newName){
-        nickedPlayers.put(p.getName(), newName);
         p.sendMessage(Main.pluginPrefix + " Your name is now: §a" + newName);
         p.setDisplayName(newName);
         p.setPlayerListName(newName);

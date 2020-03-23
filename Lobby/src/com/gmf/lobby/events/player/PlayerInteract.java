@@ -40,9 +40,22 @@ public class PlayerInteract implements Listener {
             gost91Send.setItemMeta(gost91SendItemMeta);
 
 
+            ItemStack creativeSend = new ItemStack(Material.DIAMOND);
+            ItemMeta creativeSendItemMeta = creativeSend.getItemMeta();
+
+            List<String> creativeSendLore = new ArrayList<String>();
+            creativeSendLore.add("Sends you to the creative world.");
+            creativeSendItemMeta.setLore(creativeSendLore);
+
+
+            creativeSendItemMeta.setDisplayName("Creative");
+            creativeSend.setItemMeta(creativeSendItemMeta);
+
+
             Inventory lobbyInventory = Bukkit.createInventory(null, 9, "Lobby");
 
             lobbyInventory.setItem(0, gost91Send);
+            lobbyInventory.setItem(1, creativeSend);
 
             p.openInventory(lobbyInventory);
 

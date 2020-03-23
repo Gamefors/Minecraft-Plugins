@@ -24,6 +24,7 @@ public class Main extends JavaPlugin {
 
     private void registerOutGoingPluginChannels() {
         Bukkit.getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
+        Bukkit.getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
     }
 
     private void setWorldSettings() {
@@ -64,7 +65,6 @@ public class Main extends JavaPlugin {
         pluginManager.registerEvents(new EntityDamage(),this);
         //inventory
         pluginManager.registerEvents(new InventoryClick(this), this);
-
     }
 
 }

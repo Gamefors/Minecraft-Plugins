@@ -39,13 +39,24 @@ public class InventoryClick implements Listener {
 
         Player p = (Player) e.getWhoClicked();
 
-        if(e.getCurrentItem().getType() == Material.GRASS){
+        if(e.getCurrentItem().getType() == Material.GRASS) {
             e.setCancelled(true);
             ByteArrayOutputStream b = new ByteArrayOutputStream();
             DataOutputStream out = new DataOutputStream(b);
             try {
                 out.writeUTF("Connect");
                 out.writeUTF("gost91");
+            } catch (IOException eee) {
+
+            }
+            p.sendPluginMessage(this.plugin, "BungeeCord", b.toByteArray());
+        }else if(e.getCurrentItem().getType() == Material.DIAMOND){
+            e.setCancelled(true);
+            ByteArrayOutputStream b = new ByteArrayOutputStream();
+            DataOutputStream out = new DataOutputStream(b);
+            try {
+                out.writeUTF("Connect");
+                out.writeUTF("creative");
             } catch (IOException eee) {
 
             }
