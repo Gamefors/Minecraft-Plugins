@@ -28,7 +28,7 @@ public class PlayerInteract implements Listener {
         ItemStack selectedItem = p.getInventory().getItemInMainHand();
         if(selectedItem.getType() == Material.COMPASS){
 
-            ItemStack gost91Send = new ItemStack(Material.GRASS);
+            ItemStack gost91Send = new ItemStack(Material.GRASS_BLOCK);
             ItemMeta gost91SendItemMeta = gost91Send.getItemMeta();
 
             List<String> gost91SendLore = new ArrayList<String>();

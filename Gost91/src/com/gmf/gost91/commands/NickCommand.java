@@ -27,7 +27,7 @@ public class NickCommand implements CommandExecutor {
                         p.sendMessage(Main.pluginPrefix + " §cThe specified username could not be found on the server.");
                     }else{
                         setPlayerName(Bukkit.getServer().getPlayer(strings[0]),newName);
-                        p.sendMessage(Main.pluginPrefix + "the name of: §c" + Bukkit.getServer().getPlayer(strings[0]).getName() + " §fis now: §a" + newName);
+                        p.sendMessage(Main.pluginPrefix + " The name of: §c" + Bukkit.getServer().getPlayer(strings[0]).getName() + " §fis now: §a" + newName);
                     }
                 }else{
                     p.sendMessage(Main.pluginPrefix + " §c/nick [username] §4[newNickName]");

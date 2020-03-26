@@ -39,7 +39,7 @@ public class InventoryClick implements Listener {
 
         Player p = (Player) e.getWhoClicked();
 
-        if(e.getCurrentItem().getType() == Material.GRASS) {
+        if(e.getCurrentItem().getType() == Material.GRASS_BLOCK) {
             e.setCancelled(true);
             ByteArrayOutputStream b = new ByteArrayOutputStream();
             DataOutputStream out = new DataOutputStream(b);

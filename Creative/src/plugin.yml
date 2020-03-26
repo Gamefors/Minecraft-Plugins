@@ -1,6 +1,7 @@
 name: Creative
 version: 1.0
 description: Creative Plugin for Creative Server
+api-version: 1.15
 author: GMF
 authors: [GMF]
 website: http://5.189.129.153/
