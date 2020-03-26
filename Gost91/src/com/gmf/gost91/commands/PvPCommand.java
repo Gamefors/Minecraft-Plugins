@@ -10,9 +10,13 @@ import org.bukkit.entity.Player;
 public class PvPCommand implements CommandExecutor {
 
     World world;
+    World nether;
+    World end;
 
-    public PvPCommand(World world){
+    public PvPCommand(World world, World nether, World end){
         this.world = world;
+        this.nether = nether;
+        this.end = end;
     }
 
     @Override
@@ -21,9 +25,13 @@ public class PvPCommand implements CommandExecutor {
         if(p.isOp()){
             if(world.getPVP()){
                 world.setPVP(false);
+                nether.setPVP(false);
+                end.setPVP(false);
                 p.sendMessage(Main.pluginPrefix + " §cDisabled §fpvp.");
             }else{
                 world.setPVP(true);
+                nether.setPVP(true);
+                end.setPVP(true);
                 p.sendMessage(Main.pluginPrefix + " §aEnabled §fpvp.");
             }
         }else{

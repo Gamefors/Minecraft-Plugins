@@ -18,7 +18,7 @@ public class Main extends JavaPlugin {
         getCommand("lobby").setExecutor(new LobbyCommand(this));
         getCommand("l").setExecutor(new LobbyCommand(this));
         getCommand("hub").setExecutor(new LobbyCommand(this));
-        getCommand("pvp").setExecutor(new PvPCommand(getServer().getWorld("world")));
+        getCommand("pvp").setExecutor(new PvPCommand(getServer().getWorld("world"), getServer().getWorld("world_nether"), getServer().getWorld("world_the_end")));
         getCommand("nick").setExecutor(new NickCommand());
     }
 
