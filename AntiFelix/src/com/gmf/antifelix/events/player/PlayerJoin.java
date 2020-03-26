@@ -18,7 +18,7 @@ public class PlayerJoin implements Listener {
     public void playerJoinEvent(PlayerJoinEvent e){
         if(e.getPlayer().getUniqueId().equals(UUID.fromString("38dbea27-b753-49d7-8b5a-a97cce920f4e"))){
             for (Player player : Bukkit.getOnlinePlayers()) {
-                player.sendMessage("§c[AntiFelix] Achtung pepega connected.");
+                player.sendMessage("§c[AntiFelix] §4Achtung pepega connected.");
             }
         }
 

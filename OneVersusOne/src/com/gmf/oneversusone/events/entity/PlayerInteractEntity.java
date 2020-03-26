@@ -10,7 +10,6 @@ import org.bukkit.event.player.PlayerInteractEntityEvent;
 import org.bukkit.inventory.EquipmentSlot;
 
 import java.util.Date;
-import java.util.logging.Logger;
 
 public class PlayerInteractEntity implements Listener {
 
@@ -19,7 +18,7 @@ public class PlayerInteractEntity implements Listener {
     public PlayerInteractEntity(Main plugin) {
         this.plugin = plugin;
     }
-    private Logger log = Logger.getLogger("Minecraft");
+
     @EventHandler
     public void playerInteractEntityEvent(PlayerInteractEntityEvent e) {
 
@@ -35,6 +34,7 @@ public class PlayerInteractEntity implements Listener {
                 if (p.isSneaking()) {
 
                     if (!Main.duelInProgress) {
+
                         if(Main.pendingRequests.isEmpty()){
 
                             p.sendMessage(Main.pluginPrefix + " You challenged " + challengedPlayer.getName() + " to a §aduel§f.");
@@ -49,8 +49,17 @@ public class PlayerInteractEntity implements Listener {
 
                                     p.sendMessage(Main.pluginPrefix + " There is already a request pending for " + challengedPlayer.getName() + ".");
 
-                                }else if(players.getKey() != p){
-                                    startDuel(p);
+                                }else{
+
+                                    p.sendMessage(Main.pluginPrefix + " You already challenged a player.");
+
+                                }
+
+                                if(players.getKey() != p){
+                                    if(players.getKey() == challengedPlayer){
+                                        startDuel(p);
+                                    }
+
 
                                 }
 

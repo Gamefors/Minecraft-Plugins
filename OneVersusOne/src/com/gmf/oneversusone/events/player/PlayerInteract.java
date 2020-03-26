@@ -20,7 +20,9 @@ public class PlayerInteract implements Listener {
     @EventHandler
     public void playerInteractEvent(PlayerInteractEvent e) {
         if(Main.duelInProgress){
-            e.setCancelled(true);
+            if(Main.playersInDuel.getValue() == e.getPlayer() || Main.playersInDuel.getValue() == e.getPlayer()){
+                e.setCancelled(true);
+            }
         }
     }
 }

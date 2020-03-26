@@ -12,7 +12,7 @@ public class PlayerDropItem implements Listener {
     @EventHandler
     public void playerDropItemEvent(PlayerDropItemEvent e){
         if(e.getPlayer().getUniqueId().equals(UUID.fromString("38dbea27-b753-49d7-8b5a-a97cce920f4e"))){
-            e.getPlayer().sendMessage("§cDarfst du nich du pepega!");
+            e.getPlayer().sendMessage("§c[AntiFelix] §4Darfst du nich du pepega!");
             e.setCancelled(true);
         }
 

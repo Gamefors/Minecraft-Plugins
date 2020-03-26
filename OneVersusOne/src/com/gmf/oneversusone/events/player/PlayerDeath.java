@@ -57,16 +57,17 @@ public class PlayerDeath implements Listener {
                 if(Main.playersInDuel != null){
                     if (killedPlayer == Main.playersInDuel.getValue() || killedPlayer == Main.playersInDuel.getKey()) {
 
-                        Main.playersInDuel = null;
-                        Main.duelInProgress = false;
-
                         for (Player player : Bukkit.getOnlinePlayers()) {
                             player.sendMessage(Main.pluginPrefix + " " + killedPlayer.getName() + " was not killed by a player.");
                         }
 
                         this.plugin.getServer().getScheduler().scheduleSyncDelayedTask(this.plugin, new Runnable() {
                             public void run() {
-                                killedPlayer.teleport(Main.arenaPlayerExit);
+                                Main.playersInDuel.getKey().teleport(Main.arenaPlayerExit);
+                                Main.playersInDuel.getValue().teleport(Main.arenaPlayerExit);
+
+                                Main.playersInDuel = null;
+                                Main.duelInProgress = false;
                             }
                         }, 20 * 1);
 

@@ -1,14 +1,13 @@
-name: AntiFelix
-version: 1.0
-description: AntiFelix for GMF-Network
-author: GMF
-authors: [GMF]
-website: http://5.189.129.153/
-
 main: com.gmf.antifelix.main.Main
-database: false
-depend:
+
+name: AntiFelix
+
+version: 1.0.0
+
+api-version: 1.15
+
+load: POSTWORLD
+
+author: GMF
 
 commands:
-
-permissions:
