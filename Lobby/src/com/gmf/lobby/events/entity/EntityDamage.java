@@ -10,6 +10,7 @@ public class EntityDamage implements Listener {
     @EventHandler
     public void entityDamageEvent(EntityDamageEvent e){
         if(e.getEntity() instanceof Player){
+            e.getEntity().sendMessage("§cDarfst du nich du pepega!");
             e.setCancelled(true);
         }
     }

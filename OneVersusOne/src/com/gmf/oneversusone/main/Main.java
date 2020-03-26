@@ -2,6 +2,7 @@ package com.gmf.oneversusone.main;
 
 import com.gmf.oneversusone.events.entity.PlayerInteractEntity;
 import com.gmf.oneversusone.events.player.PlayerDeath;
+import com.gmf.oneversusone.events.player.PlayerInteract;
 import com.gmf.oneversusone.events.player.PlayerMove;
 import javafx.util.Pair;
 import org.bukkit.Bukkit;
@@ -49,6 +50,7 @@ public class Main extends JavaPlugin {
         pluginManager.registerEvents(new PlayerInteractEntity(this), this);
         pluginManager.registerEvents(new PlayerMove(), this);
         pluginManager.registerEvents(new PlayerDeath(this), this);
+        pluginManager.registerEvents(new PlayerInteract(), this);
     }
 
     class BackgroundThread implements Runnable{
