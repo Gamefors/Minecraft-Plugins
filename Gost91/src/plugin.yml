@@ -12,9 +12,6 @@ author: GMF
 
 commands:
 
-  lobby:
-    aliases: [l,hub]
-
   pvp:
 
   nick:

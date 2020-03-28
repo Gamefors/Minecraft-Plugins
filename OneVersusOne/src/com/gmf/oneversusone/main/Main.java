@@ -68,7 +68,7 @@ public class Main extends JavaPlugin {
                     pendingRequests.forEach((date, players) -> {
 
                         if (now.getTime() - date.getTime() >= 5*60*1000) {
-                            pendingRequests.remove(date);
+                            pendingRequests.remove(players);
                             log.info(Main.pluginPrefix + " Removed pendingRequests off users: " + players.getKey().getName() + ":" + players.getValue().getName() + ".");
                         }
 

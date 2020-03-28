@@ -1,0 +1,16 @@
+main: com.gmf.gmfnetwork.main.Main
+
+name: GMF-Network
+
+version: 1.0.0
+
+api-version: 1.15
+
+author: GMF
+
+commands:
+
+  lobby:
+    aliases: [l,hub]
+
+  ping:

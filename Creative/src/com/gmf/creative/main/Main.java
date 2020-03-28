@@ -1,6 +1,5 @@
 package com.gmf.creative.main;
 
-import com.gmf.creative.commands.LobbyCommand;
 import com.gmf.creative.events.player.PlayerJoin;
 import org.bukkit.Bukkit;
 import org.bukkit.Difficulty;
@@ -32,9 +31,7 @@ public class Main extends JavaPlugin {
     }
 
     private void registerCommands() {
-        getCommand("lobby").setExecutor(new LobbyCommand(this));
-        getCommand("l").setExecutor(new LobbyCommand(this));
-        getCommand("hub").setExecutor(new LobbyCommand(this));
+
     }
 
     private void registerOutGoingPluginChannels() {

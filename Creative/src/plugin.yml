@@ -11,8 +11,5 @@ database: false
 depend:
 
 commands:
-  lobby:
-  l:
-  hub:
 
 permissions:

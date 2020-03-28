@@ -40,6 +40,8 @@ public class PlayerDeath implements Listener {
                             public void run() {
                                 killedPlayer.teleport(Main.arenaPlayerExit);
                                 killerPlayer.teleport(Main.arenaPlayerExit);
+                                killedPlayer.setHealth(20);
+                                killerPlayer.setHealth(20);
                             }
                         }, 20 * 1);
 
@@ -65,6 +67,9 @@ public class PlayerDeath implements Listener {
                             public void run() {
                                 Main.playersInDuel.getKey().teleport(Main.arenaPlayerExit);
                                 Main.playersInDuel.getValue().teleport(Main.arenaPlayerExit);
+
+                                Main.playersInDuel.getValue().setHealth(20);
+                                Main.playersInDuel.getKey().setHealth(20);
 
                                 Main.playersInDuel = null;
                                 Main.duelInProgress = false;
