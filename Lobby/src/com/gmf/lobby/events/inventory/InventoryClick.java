@@ -61,6 +61,28 @@ public class InventoryClick implements Listener {
 
             }
             p.sendPluginMessage(this.plugin, "BungeeCord", b.toByteArray());
+        }else if(e.getCurrentItem().getType() == Material.FEATHER){
+            e.setCancelled(true);
+            ByteArrayOutputStream b = new ByteArrayOutputStream();
+            DataOutputStream out = new DataOutputStream(b);
+            try {
+                out.writeUTF("Connect");
+                out.writeUTF("skyblock");
+            } catch (IOException eee) {
+
+            }
+            p.sendPluginMessage(this.plugin, "BungeeCord", b.toByteArray());
+        }else if(e.getCurrentItem().getType() == Material.MAGENTA_WOOL) {
+            e.setCancelled(true);
+            ByteArrayOutputStream b = new ByteArrayOutputStream();
+            DataOutputStream out = new DataOutputStream(b);
+            try {
+                out.writeUTF("Connect");
+                out.writeUTF("livestream");
+            } catch (IOException eee) {
+
+            }
+            p.sendPluginMessage(this.plugin, "BungeeCord", b.toByteArray());
         }else{
             e.setCancelled(true);
         }

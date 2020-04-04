@@ -1,0 +1,19 @@
+main: com.gmf.skyblock.main.Main
+
+name: Skyblock
+
+version: 1.0.0
+
+api-version: 1.15
+
+author: GMF
+
+database: true
+
+depend: [WorldEdit]
+
+commands:
+
+  visit:
+
+  is:

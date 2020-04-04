@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" build-on-make="true" name="GMF">
-    <output-path>$PROJECT_DIR$/out/artifacts/GMF</output-path>
-    <root id="archive" name="GMF.jar">
-      <element id="module-output" name="GMF" />
-    </root>
-  </artifact>
-</component>

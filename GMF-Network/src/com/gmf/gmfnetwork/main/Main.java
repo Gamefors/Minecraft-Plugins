@@ -8,7 +8,7 @@ import net.md_5.bungee.api.plugin.PluginManager;
 
 public class Main extends Plugin {
 
-    public static String prefix = "§9[GMF]§f";
+    public static String prefix = "§9[GMF-Network]§f";
 
     @Override
     public void onEnable() {

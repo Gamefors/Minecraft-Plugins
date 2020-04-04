@@ -29,6 +29,7 @@ public class Main extends JavaPlugin {
     private void registerCommands() {
         getCommand("pvp").setExecutor(new PvPCommand(getServer().getWorld("world"), getServer().getWorld("world_nether"), getServer().getWorld("world_the_end")));
         getCommand("nick").setExecutor(new NickCommand());
+        getCommand("link").setExecutor(new LinkCommand());
     }
 
     private void registerOutGoingPluginChannels() {

@@ -12,7 +12,7 @@ public class EntityPickupItem implements Listener {
     @EventHandler
     public void entityPickupItemEvent(EntityPickupItemEvent e){
         if(e.getEntity() instanceof Player){
-            if(((Player) e.getEntity()).getUniqueId().equals(UUID.fromString("38dbea27-b753-49d7-8b5a-a97cce920f4e"))){
+            if(((Player) e.getEntity()).getUniqueId().equals(UUID.fromString("24c7dded-a0f3-43ca-92f0-5ff46451daf3"))){
                 e.getEntity().sendMessage("§c[AntiFelix] §4Darfst du nich du pepega!");
                 e.setCancelled(true);
             }

@@ -13,54 +13,78 @@ package com.gmf.lobby.events.player;
 
         import java.util.ArrayList;
         import java.util.List;
+        import java.util.UUID;
 
 public class PlayerInteract implements Listener {
 
     @EventHandler
     public void playerInteractEvent(PlayerInteractEvent e) {
+
         Player p = e.getPlayer();
-
-        if(e.getAction().equals(Action.LEFT_CLICK_AIR) || e.getAction().equals(Action.LEFT_CLICK_BLOCK)){
-            e.setCancelled(true);
-            return;
-        }
-
         ItemStack selectedItem = p.getInventory().getItemInMainHand();
-        if(selectedItem.getType() == Material.COMPASS){
 
-            ItemStack gost91Send = new ItemStack(Material.GRASS_BLOCK);
-            ItemMeta gost91SendItemMeta = gost91Send.getItemMeta();
+        if (e.getAction().equals(Action.RIGHT_CLICK_AIR) || e.getAction().equals(Action.RIGHT_CLICK_BLOCK)) {
 
-            List<String> gost91SendLore = new ArrayList<String>();
-            gost91SendLore.add("Sends you to the Gost91 world.");
-            gost91SendItemMeta.setLore(gost91SendLore);
+            if (selectedItem.getType() == Material.COMPASS) {
 
-
-            gost91SendItemMeta.setDisplayName("Gost91");
-            gost91Send.setItemMeta(gost91SendItemMeta);
+                ItemStack creativeSend = new ItemStack(Material.DIAMOND);
+                ItemStack gost91Send = new ItemStack(Material.GRASS_BLOCK);
+                ItemStack skyblockSend = new ItemStack(Material.FEATHER);
+                ItemStack livestreamSend = new ItemStack(Material.MAGENTA_WOOL);
 
 
-            ItemStack creativeSend = new ItemStack(Material.DIAMOND);
-            ItemMeta creativeSendItemMeta = creativeSend.getItemMeta();
-
-            List<String> creativeSendLore = new ArrayList<String>();
-            creativeSendLore.add("Sends you to the creative world.");
-            creativeSendItemMeta.setLore(creativeSendLore);
+                ItemMeta creativeSendItemMeta = creativeSend.getItemMeta();
+                ItemMeta gost91SendItemMeta = gost91Send.getItemMeta();
+                ItemMeta skyblockSendItemMeta = skyblockSend.getItemMeta();
+                ItemMeta livestreamSendItemMeta = livestreamSend.getItemMeta();
 
 
-            creativeSendItemMeta.setDisplayName("Creative");
-            creativeSend.setItemMeta(creativeSendItemMeta);
+                List<String> creativeSendLore = new ArrayList<String>();
+                List<String> gost91SendLore = new ArrayList<String>();
+                List<String> skyblockSendLore = new ArrayList<String>();
+                List<String> livestreamSendLore = new ArrayList<String>();
 
 
-            Inventory lobbyInventory = Bukkit.createInventory(null, 9, "Lobby");
+                creativeSendLore.add("Sends you to the creative world.");
+                gost91SendLore.add("Sends you to the Gost91 world.");
+                skyblockSendLore.add("Sends you to the Skyblock world.");
+                livestreamSendLore.add("Sends you to the performancebrot livestream world.");
 
-            lobbyInventory.setItem(0, gost91Send);
-            lobbyInventory.setItem(1, creativeSend);
+                creativeSendItemMeta.setLore(creativeSendLore);
+                gost91SendItemMeta.setLore(gost91SendLore);
+                skyblockSendItemMeta.setLore(skyblockSendLore);
+                livestreamSendItemMeta.setLore(livestreamSendLore);
 
-            p.openInventory(lobbyInventory);
+                creativeSendItemMeta.setDisplayName("§6Creative Server");
+                gost91SendItemMeta.setDisplayName("§6Gost91 Server");
+                skyblockSendItemMeta.setDisplayName("§6Skyblock Server");
+                livestreamSendItemMeta.setDisplayName("§dperformancebrot §6Livestream Server");
+
+                creativeSend.setItemMeta(creativeSendItemMeta);
+                gost91Send.setItemMeta(gost91SendItemMeta);
+                skyblockSend.setItemMeta(skyblockSendItemMeta);
+                livestreamSend.setItemMeta(livestreamSendItemMeta);
+
+                Inventory lobbyInventory = Bukkit.createInventory(null, 9, "Lobby");
+
+                lobbyInventory.setItem(0, gost91Send);
+                lobbyInventory.setItem(1, creativeSend);
+                lobbyInventory.setItem(2, skyblockSend);
+                lobbyInventory.setItem(6, livestreamSend);
+
+                p.openInventory(lobbyInventory);
+
+            }else{
+                e.setCancelled(true);
+            }
 
         }else{
-            e.setCancelled(true);
+            if(!p.getUniqueId().equals(UUID.fromString("dfc5d199-b370-40d7-ba45-d675a1055ebe"))){
+                e.setCancelled(true);
+            }
+
         }
+
     }
+
 }

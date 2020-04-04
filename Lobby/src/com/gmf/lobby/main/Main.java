@@ -6,6 +6,7 @@ import com.gmf.lobby.events.inventory.InventoryClick;
 import com.gmf.lobby.events.player.PlayerDropItem;
 import com.gmf.lobby.events.player.PlayerInteract;
 import com.gmf.lobby.events.player.PlayerJoin;
+import com.gmf.lobby.events.player.PlayerSwapHandItems;
 import org.bukkit.*;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -25,32 +26,38 @@ public class Main extends JavaPlugin {
     private void registerOutGoingPluginChannels() {
         Bukkit.getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
         Bukkit.getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
+        Bukkit.getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
+        Bukkit.getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
     }
 
     private void setWorldSettings() {
         World lobbyWorld = server.getWorld("world");
+        setGamerules(lobbyWorld);
         lobbyWorld.setPVP(false);
-        lobbyWorld.setGameRule(GameRule.DO_DAYLIGHT_CYCLE, false);
-        lobbyWorld.setTime(1000);
-        lobbyWorld.setGameRule(GameRule.ANNOUNCE_ADVANCEMENTS, false);
-        lobbyWorld.setGameRule(GameRule.DISABLE_ELYTRA_MOVEMENT_CHECK, true);
-        lobbyWorld.setGameRule(GameRule.DISABLE_RAIDS, true);
-        lobbyWorld.setGameRule(GameRule.DO_MOB_SPAWNING, false);
-        lobbyWorld.setDifficulty(Difficulty.PEACEFUL);
-        lobbyWorld.setGameRule(GameRule.DO_WEATHER_CYCLE, false);
         lobbyWorld.setStorm(false);
+        lobbyWorld.setTime(1000);
         lobbyWorld.setWeatherDuration(0);
-        lobbyWorld.setGameRule(GameRule.DO_FIRE_TICK, false);
-        lobbyWorld.setGameRule(GameRule.DO_IMMEDIATE_RESPAWN, true);
-        lobbyWorld.setGameRule(GameRule.DO_ENTITY_DROPS, false);
-        lobbyWorld.setGameRule(GameRule.DO_PATROL_SPAWNING, false);
-        lobbyWorld.setGameRule(GameRule.SHOW_DEATH_MESSAGES, false);
-        lobbyWorld.setGameRule(GameRule.DO_INSOMNIA, false);
-        lobbyWorld.setGameRule(GameRule.DO_TRADER_SPAWNING,false);
-        lobbyWorld.setGameRule(GameRule.FALL_DAMAGE,false);
-        lobbyWorld.setGameRule(GameRule.FIRE_DAMAGE,false);
-        lobbyWorld.setGameRule(GameRule.MOB_GRIEFING,false);
-        lobbyWorld.setGameRule(GameRule.DROWNING_DAMAGE,false);
+        lobbyWorld.setDifficulty(Difficulty.PEACEFUL);
+    }
+
+    private void setGamerules(World world) {
+        world.setGameRule(GameRule.DO_DAYLIGHT_CYCLE, false);
+        world.setGameRule(GameRule.DO_FIRE_TICK, false);
+        world.setGameRule(GameRule.DO_IMMEDIATE_RESPAWN, true);
+        world.setGameRule(GameRule.DO_ENTITY_DROPS, false);
+        world.setGameRule(GameRule.DO_PATROL_SPAWNING, false);
+        world.setGameRule(GameRule.SHOW_DEATH_MESSAGES, false);
+        world.setGameRule(GameRule.DO_INSOMNIA, false);
+        world.setGameRule(GameRule.DO_TRADER_SPAWNING,false);
+        world.setGameRule(GameRule.FALL_DAMAGE,false);
+        world.setGameRule(GameRule.FIRE_DAMAGE,false);
+        world.setGameRule(GameRule.MOB_GRIEFING,false);
+        world.setGameRule(GameRule.DROWNING_DAMAGE,false);
+        world.setGameRule(GameRule.DO_WEATHER_CYCLE, false);
+        world.setGameRule(GameRule.ANNOUNCE_ADVANCEMENTS, false);
+        world.setGameRule(GameRule.DISABLE_ELYTRA_MOVEMENT_CHECK, true);
+        world.setGameRule(GameRule.DISABLE_RAIDS, true);
+        world.setGameRule(GameRule.DO_MOB_SPAWNING, false);
     }
 
 
@@ -60,6 +67,7 @@ public class Main extends JavaPlugin {
         pluginManager.registerEvents(new PlayerDropItem(), this);
         pluginManager.registerEvents(new PlayerInteract(), this);
         pluginManager.registerEvents(new PlayerJoin(), this);
+        pluginManager.registerEvents(new PlayerSwapHandItems(), this);
         //entity
         pluginManager.registerEvents(new EntityPickupItem(), this);
         pluginManager.registerEvents(new EntityDamage(),this);

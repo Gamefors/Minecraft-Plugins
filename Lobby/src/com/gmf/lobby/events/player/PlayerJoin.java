@@ -9,6 +9,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 
 public class PlayerJoin implements Listener {
 
@@ -19,6 +20,9 @@ public class PlayerJoin implements Listener {
         p.getInventory().clear();
         Inventory pInv = p.getInventory();
         ItemStack compass = new ItemStack(Material.COMPASS);
+        ItemMeta compassMeta = compass.getItemMeta();
+        compassMeta.setDisplayName("§6Server selector");
+        compass.setItemMeta(compassMeta);
         pInv.setItem(0,compass);
     }
 
