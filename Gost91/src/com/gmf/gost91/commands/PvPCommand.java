@@ -27,15 +27,15 @@ public class PvPCommand implements CommandExecutor {
                 world.setPVP(false);
                 nether.setPVP(false);
                 end.setPVP(false);
-                p.sendMessage(Main.pluginPrefix + " §cDisabled §fpvp.");
+                p.sendMessage(Main.prefix + " §cDisabled §fpvp.");
             }else{
                 world.setPVP(true);
                 nether.setPVP(true);
                 end.setPVP(true);
-                p.sendMessage(Main.pluginPrefix + " §aEnabled §fpvp.");
+                p.sendMessage(Main.prefix + " §aEnabled §fpvp.");
             }
         }else{
-            p.sendMessage(Main.pluginPrefix + " You are not a server operator.");
+            p.sendMessage(Main.prefix + " You are not a server operator.");
         }
         return true;
     }

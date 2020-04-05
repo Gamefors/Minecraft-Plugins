@@ -10,7 +10,7 @@ import org.bukkit.entity.Player;
 public class NickCommand implements CommandExecutor {
 
     private void setPlayerName(Player p, String newName){
-        p.sendMessage(Main.pluginPrefix + " Your name is now: §a" + newName);
+        p.sendMessage(Main.prefix + " Your name is now: §a" + newName);
         p.setDisplayName(newName);
         p.setPlayerListName(newName);
     }
@@ -24,20 +24,20 @@ public class NickCommand implements CommandExecutor {
                     String newName = strings[1];
 
                     if(Bukkit.getServer().getPlayer(strings[0]) == null){
-                        p.sendMessage(Main.pluginPrefix + " §cThe specified username could not be found on the server.");
+                        p.sendMessage(Main.prefix + " §cThe specified username could not be found on the server.");
                     }else{
                         setPlayerName(Bukkit.getServer().getPlayer(strings[0]),newName);
-                        p.sendMessage(Main.pluginPrefix + " The name of: §c" + Bukkit.getServer().getPlayer(strings[0]).getName() + " §fis now: §a" + newName);
+                        p.sendMessage(Main.prefix + " The name of: §c" + Bukkit.getServer().getPlayer(strings[0]).getName() + " §fis now: §a" + newName);
                     }
                 }else{
-                    p.sendMessage(Main.pluginPrefix + " §c/nick [username] §4[newNickName]");
+                    p.sendMessage(Main.prefix + " §c/nick [username] §4[newNickName]");
                 }
 
             } else {
-                p.sendMessage(Main.pluginPrefix + " §c/nick [username] [newNickName]");
+                p.sendMessage(Main.prefix + " §c/nick [username] [newNickName]");
             }
         }else{
-            p.sendMessage(Main.pluginPrefix + " You are not a server operator.");
+            p.sendMessage(Main.prefix + " You are not a server operator.");
         }
 
 

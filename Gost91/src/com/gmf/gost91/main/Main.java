@@ -9,7 +9,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class Main extends JavaPlugin {
 
-    public static String pluginPrefix = "§9[GMF]§f";
+    public static String prefix = "§9[Gost91]§f";
 
     @Override
     public void onEnable() {

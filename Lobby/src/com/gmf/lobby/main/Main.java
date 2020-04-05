@@ -1,19 +1,14 @@
 package com.gmf.lobby.main;
 
-import com.gmf.lobby.events.entity.EntityDamage;
-import com.gmf.lobby.events.entity.EntityPickupItem;
+import com.gmf.lobby.events.CancelPlayerInteraction;
 import com.gmf.lobby.events.inventory.InventoryClick;
-import com.gmf.lobby.events.player.PlayerDropItem;
 import com.gmf.lobby.events.player.PlayerInteract;
 import com.gmf.lobby.events.player.PlayerJoin;
-import com.gmf.lobby.events.player.PlayerSwapHandItems;
 import org.bukkit.*;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class Main extends JavaPlugin {
-
-    Server server = getServer();
 
     @Override
     public void onEnable(){
@@ -31,7 +26,8 @@ public class Main extends JavaPlugin {
     }
 
     private void setWorldSettings() {
-        World lobbyWorld = server.getWorld("world");
+        World lobbyWorld = getServer().getWorld("world");
+        //noinspection ConstantConditions
         setGamerules(lobbyWorld);
         lobbyWorld.setPVP(false);
         lobbyWorld.setStorm(false);
@@ -60,19 +56,15 @@ public class Main extends JavaPlugin {
         world.setGameRule(GameRule.DO_MOB_SPAWNING, false);
     }
 
-
     private void registerEvents() {
-        PluginManager pluginManager = server.getPluginManager();
-        //player
-        pluginManager.registerEvents(new PlayerDropItem(), this);
+        PluginManager pluginManager = getServer().getPluginManager();
+
         pluginManager.registerEvents(new PlayerInteract(), this);
-        pluginManager.registerEvents(new PlayerJoin(), this);
-        pluginManager.registerEvents(new PlayerSwapHandItems(), this);
-        //entity
-        pluginManager.registerEvents(new EntityPickupItem(), this);
-        pluginManager.registerEvents(new EntityDamage(),this);
-        //inventory
         pluginManager.registerEvents(new InventoryClick(this), this);
+        pluginManager.registerEvents(new PlayerJoin(), this);
+
+        pluginManager.registerEvents(new CancelPlayerInteraction(), this);
+
     }
 
 }

@@ -1,19 +1,18 @@
 package com.gmf.lobby.events.player;
 
-        import org.bukkit.Bukkit;
-        import org.bukkit.Material;
-        import org.bukkit.entity.Player;
-        import org.bukkit.event.EventHandler;
-        import org.bukkit.event.Listener;
-        import org.bukkit.event.block.Action;
-        import org.bukkit.event.player.PlayerInteractEvent;
-        import org.bukkit.inventory.Inventory;
-        import org.bukkit.inventory.ItemStack;
-        import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.Bukkit;
+import org.bukkit.Material;
+import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
+import org.bukkit.event.block.Action;
+import org.bukkit.event.player.PlayerInteractEvent;
+import org.bukkit.inventory.Inventory;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 
-        import java.util.ArrayList;
-        import java.util.List;
-        import java.util.UUID;
+import java.util.ArrayList;
+import java.util.List;
 
 public class PlayerInteract implements Listener {
 
@@ -79,10 +78,7 @@ public class PlayerInteract implements Listener {
             }
 
         }else{
-            if(!p.getUniqueId().equals(UUID.fromString("dfc5d199-b370-40d7-ba45-d675a1055ebe"))){
-                e.setCancelled(true);
-            }
-
+            e.setCancelled(true);
         }
 
     }

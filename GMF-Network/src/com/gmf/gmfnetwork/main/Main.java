@@ -8,7 +8,7 @@ import net.md_5.bungee.api.plugin.PluginManager;
 
 public class Main extends Plugin {
 
-    public static String prefix = "§9[GMF-Network]§f";
+    public static String prefix = "§9[GMCR-Network]§f";
 
     @Override
     public void onEnable() {
@@ -19,7 +19,6 @@ public class Main extends Plugin {
         PluginManager pluginManager = ProxyServer.getInstance().getPluginManager();
         pluginManager.registerCommand(this, new LobbyCommand(this));
         pluginManager.registerCommand(this, new PingCommand());
-
     }
 
 }

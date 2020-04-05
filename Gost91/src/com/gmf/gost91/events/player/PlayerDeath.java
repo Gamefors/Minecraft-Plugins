@@ -18,10 +18,10 @@ public class PlayerDeath implements Listener {
     public void playerDeathEvent(PlayerDeathEvent e) {
         if (e.getEntity() instanceof Player) {
             Player p = e.getEntity();
-            p.sendMessage(Main.pluginPrefix + " Your died Coordinates:");
-            p.sendMessage(Main.pluginPrefix + " §cx: " + p.getLocation().getX());
-            p.sendMessage(Main.pluginPrefix + " §2y: " + p.getLocation().getY());
-            p.sendMessage(Main.pluginPrefix + " §bz: " + p.getLocation().getZ());
+            p.sendMessage(Main.prefix + " Your died Coordinates:");
+            p.sendMessage(Main.prefix + " §cx: " + p.getLocation().getX());
+            p.sendMessage(Main.prefix + " §2y: " + p.getLocation().getY());
+            p.sendMessage(Main.prefix + " §bz: " + p.getLocation().getZ());
 
             if(p.getUniqueId().equals(UUID.fromString("dfc5d199-b370-40d7-ba45-d675a1055ebe"))){
                 savedItemList = e.getDrops();

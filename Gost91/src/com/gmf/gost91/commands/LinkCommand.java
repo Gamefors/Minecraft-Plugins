@@ -47,7 +47,7 @@ public class LinkCommand implements CommandExecutor {
             }
 
 
-            p.sendMessage(Main.pluginPrefix + " §aOverworld §fsource coordinates: x:"+ (int)x + " y:" + y + " z:" + (int)z + " -> §cNether §fdestination coordinates: x:" + calcX + " y:" + y + " z:" + calcZ + "");
+            p.sendMessage(Main.prefix + " §aOverworld §fsource coordinates: x:"+ (int)x + " y:" + y + " z:" + (int)z + " -> §cNether §fdestination coordinates: x:" + calcX + " y:" + y + " z:" + calcZ + "");
 
         }else if(p.getWorld().getName().equals("world_nether")) {
             Location pLoc = p.getLocation();
@@ -80,9 +80,9 @@ public class LinkCommand implements CommandExecutor {
             }
 
 
-            p.sendMessage(Main.pluginPrefix + " §cNether §fsource coordinates: x: "+ (int)x + " y:" + y + " z:" + (int)z + " -> §aOverworld §fdestination coordinates: x:" + calcX + " y:" + y + " z:" + calcZ + "");
+            p.sendMessage(Main.prefix + " §cNether §fsource coordinates: x: "+ (int)x + " y:" + y + " z:" + (int)z + " -> §aOverworld §fdestination coordinates: x:" + calcX + " y:" + y + " z:" + calcZ + "");
         }else{
-            p.sendMessage(Main.pluginPrefix + " This doesnt work in this world.");
+            p.sendMessage(Main.prefix + " This doesnt work in this world.");
         }
 
         return true;
