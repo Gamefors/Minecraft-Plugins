@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" build-on-make="true" name="AntiFelix">
-    <output-path>$PROJECT_DIR$/out/artifacts/AntiFelix</output-path>
-    <root id="archive" name="AntiFelix.jar">
-      <element id="module-output" name="AntiFelix" />
-    </root>
-  </artifact>
-</component>

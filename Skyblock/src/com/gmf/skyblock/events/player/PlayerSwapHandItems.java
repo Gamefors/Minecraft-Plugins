@@ -1,6 +1,5 @@
 package com.gmf.skyblock.events.player;
 
-import net.minecraft.server.v1_15_R1.ItemStack;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerSwapHandItemsEvent;
@@ -12,7 +11,7 @@ public class PlayerSwapHandItems implements Listener {
 
         if(e.getOffHandItem().hasItemMeta()){
 
-            if(e.getOffHandItem().getItemMeta().getDisplayName().equals("§6Skyblock Menu")){
+            if(e.getOffHandItem().getItemMeta().getDisplayName().equals("§b§6Skyblock Menu §7(Right click)")){
 
                 e.setCancelled(true);
 

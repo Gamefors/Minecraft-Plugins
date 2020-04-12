@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" build-on-make="true" name="NoPhantoms">
-    <output-path>$PROJECT_DIR$/out/artifacts/NoPhantoms</output-path>
-    <root id="archive" name="NoPhantoms.jar">
-      <element id="module-output" name="NoPhantoms" />
-    </root>
-  </artifact>
-</component>

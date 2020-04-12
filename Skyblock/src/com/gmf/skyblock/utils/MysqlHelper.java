@@ -18,8 +18,8 @@ public class MysqlHelper {
     private void setParameters() {
         host = "5.189.129.153";
         port = 3306;
-        database = "Skyblock";
-        username = "gmf";
+        database = "minecraft";
+        username = "minecraft";
         password = "8t7uzer49";
     }
 
@@ -67,7 +67,12 @@ public class MysqlHelper {
             String[] spawn = result.getString("spawn").split(";");
             islands.add(new Island(id, owner1, spawn));
         }
-        return islands.get(0);
+        try{
+            return islands.get(0);
+        }catch (IndexOutOfBoundsException ex){
+            return null;
+        }
+
     }
 
 }

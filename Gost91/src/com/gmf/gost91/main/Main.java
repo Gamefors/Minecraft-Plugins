@@ -4,6 +4,7 @@ import com.gmf.gost91.events.player.PlayerDeath;
 import com.gmf.gost91.events.player.PlayerInteract;
 import com.gmf.gost91.events.player.PlayerRespawn;
 import org.bukkit.Bukkit;
+import org.bukkit.GameRule;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -17,6 +18,7 @@ public class Main extends JavaPlugin {
         registerCommands();
         registerEvents();
         registerOutGoingPluginChannels();
+        getServer().getWorld("world").setGameRule(GameRule.DO_INSOMNIA, false);
     }
 
     private void registerEvents() {

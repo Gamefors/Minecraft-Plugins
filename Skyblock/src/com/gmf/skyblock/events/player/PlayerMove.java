@@ -14,7 +14,6 @@ import org.bukkit.event.player.PlayerMoveEvent;
 
 import java.sql.SQLException;
 import java.util.HashMap;
-import java.util.UUID;
 
 public class PlayerMove implements Listener {
 
@@ -72,11 +71,9 @@ public class PlayerMove implements Listener {
         int diffZ = currLocation.getBlockZ() - spawn.getBlockZ();
 
         if(Math.abs(diffX) > 2500 || Math.abs(diffZ) > 2500){
-            if(!p.getUniqueId().equals(UUID.fromString("6212c912-dc16-3f22-a719-29be6a6b53e2"))){
+            if(!p.isOp()){
                 p.teleport(spawn);
                 p.sendMessage(Main.prefix + " You were outside of your skyblock area!");
-            }else{
-                p.sendMessage(Main.prefix + " You were outside of your skyblock area! But you are Gamefors.");
             }
         }
         int distanceX;

@@ -18,5 +18,4 @@ public class Island {
         spawn = new Location(Bukkit.getWorld("world"), Double.parseDouble(location_[0]), Double.parseDouble(location_[1]), Double.parseDouble(location_[2]));
     }
 
-
 }
