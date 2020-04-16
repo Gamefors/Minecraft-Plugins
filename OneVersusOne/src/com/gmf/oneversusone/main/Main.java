@@ -4,9 +4,10 @@ import com.gmf.oneversusone.events.entity.PlayerInteractEntity;
 import com.gmf.oneversusone.events.player.PlayerDeath;
 import com.gmf.oneversusone.events.player.PlayerInteract;
 import com.gmf.oneversusone.events.player.PlayerMove;
-import javafx.util.Pair;
+
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
+import org.bukkit.craftbukkit.libs.org.apache.commons.lang3.tuple.Pair;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;

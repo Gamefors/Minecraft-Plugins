@@ -10,8 +10,10 @@ public class LobbyCommand extends Command {
     Main plugin;
 
     public LobbyCommand(Main main) {
+
         super("lobby", "", "l","hub");
         this.plugin = main;
+
     }
 
     @Override
@@ -38,5 +40,6 @@ public class LobbyCommand extends Command {
             }
 
         }
+
 }
 

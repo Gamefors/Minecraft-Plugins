@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" build-on-make="true" name="GMF-Network">
-    <output-path>$PROJECT_DIR$/out/artifacts/GMF_Network</output-path>
-    <root id="archive" name="GMF-Network.jar">
-      <element id="module-output" name="GMCR-Network" />
-    </root>
-  </artifact>
-</component>

@@ -30,7 +30,7 @@ public class PlayerInteractEntity implements Listener {
 
                 Player challengedPlayer = (Player) e.getRightClicked();
                 Player p = e.getPlayer();
-
+                p.sendMessage("sdsd");
                 if (p.isSneaking()) {
 
                     if (!Main.duelInProgress) {

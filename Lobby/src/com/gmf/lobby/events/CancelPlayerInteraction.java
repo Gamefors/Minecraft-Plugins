@@ -1,5 +1,6 @@
 package com.gmf.lobby.events;
 
+import com.gmf.lobby.commands.BuildCommand;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -12,24 +13,34 @@ public class CancelPlayerInteraction implements Listener {
 
     @EventHandler
     public void playerSwapHandItemsEvent(PlayerSwapHandItemsEvent e){
-        e.setCancelled(true);
-    }
-
-    @EventHandler
-    public void playerDropItemEvent(PlayerDropItemEvent e){
-        e.setCancelled(true);
-    }
-
-    @EventHandler
-    public void entityDamageEvent(EntityDamageEvent e){
-        if(e.getEntity() instanceof Player){
+        if(!BuildCommand.builders.contains(e.getPlayer().getName())){
             e.setCancelled(true);
         }
     }
 
     @EventHandler
-    public void entityPickupItemEvent(EntityPickupItemEvent e){
-        e.setCancelled(true);
+    public void playerDropItemEvent(PlayerDropItemEvent e){
+        if(!BuildCommand.builders.contains(e.getPlayer().getName())){
+            e.setCancelled(true);
+        }
+    }
+
+    @EventHandler
+    public void entityDamageEvent(EntityDamageEvent e){
+        if(e.getEntity() instanceof Player){
+            if(!BuildCommand.builders.contains(e.getEntity().getName())){
+                e.setCancelled(true);
+            }
+        }
+    }
+
+    @EventHandler
+    public void entityPickupItemEvent(EntityPickupItemEvent e) {
+        if (e.getEntity() instanceof Player) {
+            if (!BuildCommand.builders.contains(e.getEntity().getName())) {
+                e.setCancelled(true);
+            }
+        }
     }
 
 }

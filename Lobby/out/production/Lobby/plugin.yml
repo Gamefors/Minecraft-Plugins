@@ -1,15 +1,13 @@
 name: Lobby
 version: 1.0
-description: Lobby Plugin for GMF-Network
 api-version: 1.15
 author: GMF
-authors: [GMF]
-website: http://5.189.129.153/
 
 main: com.gmf.lobby.main.Main
-database: false
-depend:
 
 commands:
+
+  build:
+    aliases: [b]
 
 permissions:

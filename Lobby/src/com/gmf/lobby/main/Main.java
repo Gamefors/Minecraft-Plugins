@@ -1,33 +1,58 @@
 package com.gmf.lobby.main;
 
+import com.gmf.lobby.commands.BuildCommand;
 import com.gmf.lobby.events.CancelPlayerInteraction;
-import com.gmf.lobby.events.inventory.InventoryClick;
-import com.gmf.lobby.events.player.PlayerInteract;
-import com.gmf.lobby.events.player.PlayerJoin;
+import com.gmf.lobby.events.CompassInteraction;
+import com.gmf.lobby.events.PlayerJoin;
+import com.gmf.lobby.events.PlayerQuit;
+import com.gmf.lobby.utils.ItemBuilder;
 import org.bukkit.*;
+import org.bukkit.enchantments.Enchantment;
+import org.bukkit.inventory.ItemFlag;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.permissions.Permission;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Main extends JavaPlugin {
+
+    public static String prefix = "§d[Lobby]§f";
+    public static List<ItemStack> itemList = new ArrayList<ItemStack>();
+
 
     @Override
     public void onEnable(){
         super.onEnable();
-        setWorldSettings();
-        registerEvents();
+        PluginManager pm = getServer().getPluginManager();
+        registerPermissions(pm);
+        fillItemList();
         registerOutGoingPluginChannels();
+        setWorldSettings();
+        registerEvents(pm);
+        registerCommands();
+    }
+
+    private void registerCommands() {
+        getCommand("build").setExecutor(new BuildCommand());
+    }
+
+    private void registerPermissions(PluginManager pm) {
+        pm.addPermission(new Permission("lobby.build"));
+    }
+
+    private void fillItemList() {
+        itemList.add(new ItemBuilder(Material.COMPASS).setDisplayName("§b§6Server selector §7(Right click)").addEnchant(Enchantment.ARROW_FIRE,1).addItemFlags(ItemFlag.HIDE_ENCHANTS).toItemStack());
     }
 
     private void registerOutGoingPluginChannels() {
-        Bukkit.getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
-        Bukkit.getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
-        Bukkit.getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
         Bukkit.getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
     }
 
     private void setWorldSettings() {
         World lobbyWorld = getServer().getWorld("world");
-        //noinspection ConstantConditions
         setGamerules(lobbyWorld);
         lobbyWorld.setPVP(false);
         lobbyWorld.setStorm(false);
@@ -56,15 +81,11 @@ public class Main extends JavaPlugin {
         world.setGameRule(GameRule.DO_MOB_SPAWNING, false);
     }
 
-    private void registerEvents() {
-        PluginManager pluginManager = getServer().getPluginManager();
-
-        pluginManager.registerEvents(new PlayerInteract(), this);
-        pluginManager.registerEvents(new InventoryClick(this), this);
-        pluginManager.registerEvents(new PlayerJoin(), this);
-
-        pluginManager.registerEvents(new CancelPlayerInteraction(), this);
-
+    private void registerEvents(PluginManager pm) {
+        pm.registerEvents(new CancelPlayerInteraction(), this);
+        pm.registerEvents(new PlayerJoin(), this);
+        pm.registerEvents(new PlayerQuit(),this);
+        pm.registerEvents(new CompassInteraction(this), this);
     }
 
 }
