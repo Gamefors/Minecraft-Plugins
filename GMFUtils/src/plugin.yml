@@ -1,0 +1,19 @@
+main: com.gmf.gmfutils.main.Main
+
+name: GMFUtils
+
+version: 1.0.0
+
+api-version: 1.15
+
+load: POSTWORLD
+
+author: GMF
+
+commands:
+
+  position:
+
+    aliases: [pos]
+
+  link:

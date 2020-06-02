@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="GMFUtils">
+    <output-path>$PROJECT_DIR$/out/artifacts/GMFUtils</output-path>
+    <root id="archive" name="GMFUtils.jar">
+      <element id="module-output" name="GMFUtils" />
+    </root>
+  </artifact>
+</component>

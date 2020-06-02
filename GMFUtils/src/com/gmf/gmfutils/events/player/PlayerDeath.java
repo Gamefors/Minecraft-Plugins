@@ -1,6 +1,6 @@
-package com.gmf.gost91.events.player;
+package com.gmf.gmfutils.events.player;
 
-import com.gmf.gost91.main.Main;
+import com.gmf.gmfutils.main.Main;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
