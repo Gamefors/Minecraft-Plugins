@@ -19,10 +19,10 @@ public class BuildCommand implements CommandExecutor {
         if(p.hasPermission("lobby.build")){
             if(builders.contains(p.getName())){
                 builders.remove(p.getName());
-                p.sendMessage(Main.prefix + " You are §cnot allowed §fto build anymore.");
+                p.sendMessage("You are §cnot allowed §fto build anymore.");
             }else{
                 builders.add(p.getName());
-                p.sendMessage(Main.prefix + " You are now §aallowed §fto build.");
+                p.sendMessage("You are now §aallowed §fto build.");
             }
         }else{
             p.sendMessage("§cYou are not allowed to do that.");

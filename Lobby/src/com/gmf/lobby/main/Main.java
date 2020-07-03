@@ -1,10 +1,7 @@
 package com.gmf.lobby.main;
 
 import com.gmf.lobby.commands.BuildCommand;
-import com.gmf.lobby.events.CancelPlayerInteraction;
-import com.gmf.lobby.events.CompassInteraction;
-import com.gmf.lobby.events.PlayerJoin;
-import com.gmf.lobby.events.PlayerQuit;
+import com.gmf.lobby.events.*;
 import com.gmf.lobby.utils.ItemBuilder;
 import org.bukkit.*;
 import org.bukkit.enchantments.Enchantment;
@@ -86,6 +83,7 @@ public class Main extends JavaPlugin {
         pm.registerEvents(new PlayerJoin(), this);
         pm.registerEvents(new PlayerQuit(),this);
         pm.registerEvents(new CompassInteraction(this), this);
+        pm.registerEvents(new PlayerMove(), this);
     }
 
 }

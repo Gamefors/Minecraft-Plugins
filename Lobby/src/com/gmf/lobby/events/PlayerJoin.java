@@ -18,7 +18,13 @@ public class PlayerJoin implements Listener {
         p.teleport(new Location(Bukkit.getWorld("world"), 0.5, 10, 0.5));
         Inventory pInv = p.getInventory();
         pInv.setItem(0, Main.itemList.get(0));
-
+        p.sendMessage("§nNützliche Links:");
+        p.sendMessage("");
+        p.sendMessage("§d§nOptifine für die 1.16.1 (Mirror Link):");
+        p.sendMessage("");
+        p.sendMessage("§ahttp://optifine.net/adloadx?f=preview_OptiFine_1.16.1_HD_U_G2_pre1.jar");
+        p.sendMessage("");
+        p.sendMessage("");
     }
 
 }

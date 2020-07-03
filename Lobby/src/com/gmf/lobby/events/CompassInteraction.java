@@ -32,10 +32,7 @@ public class CompassInteraction implements Listener {
     }
 
     private void fillCompassItemList() {
-        compassItemList.add(new ItemBuilder(Material.GRASS_BLOCK).setDisplayName("§b§6Gost91").toItemStack());
-        compassItemList.add(new ItemBuilder(Material.FEATHER).setDisplayName("§b§6Skyblock").toItemStack());
-        compassItemList.add(new ItemBuilder(Material.DIAMOND).setDisplayName("§b§6Creative").toItemStack());
-        compassItemList.add(new ItemBuilder(Material.MAGENTA_WOOL).setDisplayName("§b§6Livestream").toItemStack());
+        compassItemList.add(new ItemBuilder(Material.GRASS_BLOCK).setDisplayName("§b§21.16.1 Survival").toItemStack());
     }
 
     @EventHandler
@@ -48,7 +45,7 @@ public class CompassInteraction implements Listener {
 
                 if (selectedItem.getItemMeta().getDisplayName().equals(Main.itemList.get(0).getItemMeta().getDisplayName())) {
 
-                    Inventory pInv = Bukkit.createInventory(null, 9, "§b§6Server selector");
+                    Inventory pInv = Bukkit.createInventory(null, 9, "Server selector");
 
                     int count = 0;
                     for (ItemStack item :
@@ -88,9 +85,17 @@ public class CompassInteraction implements Listener {
                 e.setCancelled(true);
                 ByteArrayOutputStream b = new ByteArrayOutputStream();
                 DataOutputStream out = new DataOutputStream(b);
+
+                String serverName = "";
+                p.sendMessage(String.valueOf(e.getSlot()));
+                switch (e.getSlot()){
+                    case 0:
+                        serverName = "1161Survival";
+                }
+
                 try {
                     out.writeUTF("Connect");
-                    out.writeUTF(e.getCurrentItem().getItemMeta().getDisplayName().substring(4));
+                    out.writeUTF(serverName);
                 } catch (IOException eee) {
                     p.sendMessage("IOExeption occurred sending you to the server.");
                 }

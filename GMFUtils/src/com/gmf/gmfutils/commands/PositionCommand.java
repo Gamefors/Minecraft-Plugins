@@ -18,12 +18,15 @@ public class PositionCommand implements CommandExecutor {
         Player p = (Player)commandSender;
         if (strings.length != 0) {
             String positionName = strings[0];
-            if(positions.containsKey(positionName)){
+            if (positions.containsKey(positionName)) {
                 p.sendMessage(Main.prefix + "§6 Coordinates for position §a" + positionName + "§f:");
                 p.sendMessage("§cx: " + p.getLocation().getX());
                 p.sendMessage("§2y: " + p.getLocation().getY());
                 p.sendMessage("§bz: " + p.getLocation().getZ());
-            }else{
+           // }else if(){ TODO: add deleteion of positions
+
+            }
+            else{
                 Location positionLocation = p.getLocation();
                 positions.put(positionName, positionLocation);
                 p.sendMessage(Main.prefix + "new position with name: §a" + positionName + " §fadded.");

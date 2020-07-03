@@ -3,9 +3,8 @@ package com.gmf.gmfutils.main;
 import com.gmf.gmfutils.commands.LinkCommand;
 import com.gmf.gmfutils.commands.PositionCommand;
 import com.gmf.gmfutils.events.player.PlayerDeath;
-import com.gmf.gmfutils.events.player.PlayerInteract;
-import com.gmf.gmfutils.events.player.PlayerRespawn;
-import org.bukkit.GameRule;
+import com.gmf.gmfutils.events.player.EnderChestOptimization;
+import com.gmf.gmfutils.events.player.SaveGearOnDeath;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -18,14 +17,13 @@ public class Main extends JavaPlugin {
         super.onEnable();
         registerCommands();
         registerEvents();
-        getServer().getWorld("world").setGameRule(GameRule.DO_INSOMNIA, false);
     }
 
     private void registerEvents() {
         PluginManager pluginManager = getServer().getPluginManager();
-        pluginManager.registerEvents(new PlayerInteract(), this);
+        pluginManager.registerEvents(new EnderChestOptimization(), this);
         pluginManager.registerEvents(new PlayerDeath(), this);
-        pluginManager.registerEvents(new PlayerRespawn(this), this);
+        pluginManager.registerEvents(new SaveGearOnDeath(this), this);
     }
 
     private void registerCommands() {
