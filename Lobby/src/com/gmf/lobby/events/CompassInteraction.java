@@ -87,7 +87,6 @@ public class CompassInteraction implements Listener {
                 DataOutputStream out = new DataOutputStream(b);
 
                 String serverName = "";
-                p.sendMessage(String.valueOf(e.getSlot()));
                 switch (e.getSlot()){
                     case 0:
                         serverName = "1161Survival";
