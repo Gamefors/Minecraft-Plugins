@@ -25,9 +25,9 @@ public class LobbyCommand extends Command {
 
                 try {
 
-                    if(p.getServer().getInfo() != this.plugin.getProxy().getServerInfo("lobby")){
+                    if(p.getServer().getInfo() != this.plugin.getProxy().getServerInfo("Lobby")){
 
-                        p.connect(this.plugin.getProxy().getServerInfo("lobby"));
+                        p.connect(this.plugin.getProxy().getServerInfo("Lobby"));
 
                     }
 

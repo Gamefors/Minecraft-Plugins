@@ -15,7 +15,7 @@ public class PlayerJoin implements Listener {
     public void playerJoinEvent(PlayerJoinEvent e){
         Player p = e.getPlayer();
         e.setJoinMessage("§a>>>§f " + p.getName());
-        p.teleport(new Location(Bukkit.getWorld("world"), 0.5, 10, 0.5));
+        p.teleport(new Location(Bukkit.getWorld("world"), 0.5, 3, 0.5));
         Inventory pInv = p.getInventory();
         pInv.setItem(0, Main.itemList.get(0));
         p.sendMessage("§nNützliche Links:");
