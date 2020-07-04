@@ -11,7 +11,7 @@ public class PlayerMove implements Listener {
     public void playerMoveEvent(PlayerMoveEvent e){
         Player p = e.getPlayer();
         if(p.getLocation().getBlockY() < 0){
-            p.teleport(new Location(p.getWorld(),0.5, 5,0.5));
+            p.teleport(new Location(p.getWorld(),0.5, 1,0.5));
         }
     }
 }

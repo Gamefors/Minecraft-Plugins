@@ -3,30 +3,46 @@ package com.gmf.lobby.main;
 import com.gmf.lobby.commands.BuildCommand;
 import com.gmf.lobby.events.*;
 import com.gmf.lobby.utils.ItemBuilder;
+import com.google.common.collect.Iterables;
+import com.google.common.io.ByteArrayDataInput;
+import com.google.common.io.ByteArrayDataOutput;
+import com.google.common.io.ByteStreams;
 import org.bukkit.*;
 import org.bukkit.enchantments.Enchantment;
+import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.permissions.Permission;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.plugin.messaging.PluginMessageListener;
 
+import java.io.ByteArrayInputStream;
+import java.io.DataInputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Main extends JavaPlugin {
+public class Main extends JavaPlugin implements PluginMessageListener {
 
-    public static String prefix = "§d[Lobby]§f";
     public static List<ItemStack> itemList = new ArrayList<ItemStack>();
-
 
     @Override
     public void onEnable(){
         super.onEnable();
+        Bukkit.getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
+        this.getServer().getMessenger().registerIncomingPluginChannel(this, "BungeeCord", this);
+        ByteArrayDataOutput out = ByteStreams.newDataOutput();
+        out.writeUTF("PlayerCount");
+        out.writeUTF("Lobby");
+
+        Player player = Iterables.getFirst(Bukkit.getOnlinePlayers(), null);
+
+        player.sendPluginMessage(this, "BungeeCord", out.toByteArray());
+
         PluginManager pm = getServer().getPluginManager();
         registerPermissions(pm);
         fillItemList();
-        registerOutGoingPluginChannels();
         setWorldSettings();
         registerEvents(pm);
         registerCommands();
@@ -44,9 +60,6 @@ public class Main extends JavaPlugin {
         itemList.add(new ItemBuilder(Material.COMPASS).setDisplayName("§b§6Server selector §7(Right click)").addEnchant(Enchantment.ARROW_FIRE,1).addItemFlags(ItemFlag.HIDE_ENCHANTS).toItemStack());
     }
 
-    private void registerOutGoingPluginChannels() {
-        Bukkit.getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
-    }
 
     private void setWorldSettings() {
         World lobbyWorld = getServer().getWorld("world");
@@ -86,4 +99,18 @@ public class Main extends JavaPlugin {
         pm.registerEvents(new PlayerMove(), this);
     }
 
+    @Override
+    public void onPluginMessageReceived(String channel, Player player, byte[] message) {
+        if (!channel.equals("BungeeCord")) {
+            return;
+        }
+
+        ByteArrayDataInput in = ByteStreams.newDataInput(message);
+        String subchannel = in.readUTF();
+
+        if (subchannel.equals("Forward")) {
+
+        }
+
+    }
 }

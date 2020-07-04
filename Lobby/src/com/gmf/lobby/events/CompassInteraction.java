@@ -3,6 +3,8 @@ package com.gmf.lobby.events;
 import com.gmf.lobby.commands.BuildCommand;
 import com.gmf.lobby.main.Main;
 import com.gmf.lobby.utils.ItemBuilder;
+import com.google.common.io.ByteArrayDataOutput;
+import com.google.common.io.ByteStreams;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.craftbukkit.libs.org.apache.commons.io.output.ByteArrayOutputStream;
@@ -15,12 +17,17 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
+import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
+import java.io.PrintStream;
+import java.net.InetAddress;
+import java.net.Socket;
+import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CompassInteraction implements Listener {
+public class CompassInteraction implements Listener{
 
     Main plugin;
 
@@ -37,31 +44,24 @@ public class CompassInteraction implements Listener {
 
     @EventHandler
     public void playerInteractEvent(PlayerInteractEvent e) {
-
         Player p = e.getPlayer();
         ItemStack selectedItem = p.getInventory().getItemInMainHand();
         if(selectedItem.hasItemMeta()){
             if (e.getAction().equals(Action.RIGHT_CLICK_AIR) || e.getAction().equals(Action.RIGHT_CLICK_BLOCK)) {
-
                 if (selectedItem.getItemMeta().getDisplayName().equals(Main.itemList.get(0).getItemMeta().getDisplayName())) {
-
                     Inventory pInv = Bukkit.createInventory(null, 9, "Server selector");
-
                     int count = 0;
                     for (ItemStack item :
                             compassItemList) {
                         pInv.setItem(count, item);
                         count++;
                     }
-
                     p.openInventory(pInv);
-
                 }else{
                     if(!BuildCommand.builders.contains(p.getName())){
                         e.setCancelled(true);
                     }
                 }
-
             }else{
                 if(!BuildCommand.builders.contains(p.getName())){
                     e.setCancelled(true);
@@ -76,16 +76,12 @@ public class CompassInteraction implements Listener {
 
     @EventHandler
     public void inventoryClickEvent(InventoryClickEvent e){
-
         if((e.getWhoClicked() instanceof Player) && (e.getCurrentItem() != null)) {
-
             Player p = (Player) e.getWhoClicked();
-
             if (compassItemList.contains(e.getCurrentItem())) {
                 e.setCancelled(true);
                 ByteArrayOutputStream b = new ByteArrayOutputStream();
                 DataOutputStream out = new DataOutputStream(b);
-
                 String serverName = "";
                 switch (e.getSlot()){
                     case 0:
@@ -109,7 +105,5 @@ public class CompassInteraction implements Listener {
                 e.setCancelled(true);
             }
         }
-
     }
-
 }
