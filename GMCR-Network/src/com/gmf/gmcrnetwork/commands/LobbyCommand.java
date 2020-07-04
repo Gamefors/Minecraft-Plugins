@@ -4,6 +4,9 @@ import com.gmf.gmcrnetwork.main.Main;
 import net.md_5.bungee.api.CommandSender;
 import net.md_5.bungee.api.connection.ProxiedPlayer;
 import net.md_5.bungee.api.plugin.Command;
+import net.md_5.bungee.event.EventHandler;
+
+import javax.sql.ConnectionEventListener;
 
 public class LobbyCommand extends Command {
 

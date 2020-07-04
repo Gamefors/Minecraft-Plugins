@@ -91,14 +91,14 @@ public class CompassInteraction implements Listener {
                     case 0:
                         serverName = "1161Survival";
                 }
-
                 try {
                     out.writeUTF("Connect");
                     out.writeUTF(serverName);
-                } catch (IOException eee) {
-                    p.sendMessage("IOExeption occurred sending you to the server.");
+                    p.sendPluginMessage(this.plugin, "BungeeCord", b.toByteArray());
+                } catch (IOException ex) {
+                    p.sendMessage(String.valueOf(ex));
                 }
-                p.sendPluginMessage(this.plugin, "BungeeCord", b.toByteArray());
+
             }else{
                 if(!BuildCommand.builders.contains(p.getName())){
                     e.setCancelled(true);
