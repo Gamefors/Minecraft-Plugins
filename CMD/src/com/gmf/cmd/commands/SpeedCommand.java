@@ -25,10 +25,10 @@ public class SpeedCommand implements CommandExecutor {
                     }else{
                         if(p.isFlying()){
                             p.setFlySpeed(speed);
-                            p.sendMessage(Main.prefix + " You flying speed ist now: " + speed*10 + ".");
+                            p.sendMessage("You flying speed ist now: " + speed*10 + ".");
                         }else{
                             p.setWalkSpeed(speed);
-                            p.sendMessage(Main.prefix + " You walking speed ist now: " + speed*10 + ".");
+                            p.sendMessage("You walking speed ist now: " + speed*10 + ".");
                         }
                     }
 

@@ -9,8 +9,6 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class Main extends JavaPlugin {
 
-    public static String prefix = "§b[CMD]§f";
-
     @Override
     public void onEnable(){
         super.onEnable();
@@ -26,7 +24,6 @@ public class Main extends JavaPlugin {
         pm.addPermission(new Permission("cmd.reload"));
         pm.addPermission(new Permission("cmd.speed"));
         pm.addPermission(new Permission("cmd.vanish"));
-        //pm.addPermission(new Permission("cmd.nick"));
     }
 
     private void registerEvents(PluginManager pm) {
@@ -41,7 +38,6 @@ public class Main extends JavaPlugin {
 
         getCommand("vanish").setExecutor(new VanishCommand(this));
         getCommand("speed").setExecutor(new SpeedCommand());
-        //getCommand("nick").setExecutor(new NickCommand());
     }
 
 }

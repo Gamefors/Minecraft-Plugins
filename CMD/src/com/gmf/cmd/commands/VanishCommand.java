@@ -29,13 +29,13 @@ public class VanishCommand implements CommandExecutor{
                     pl.showPlayer(this.plugin, p);
                 }
                 vanishedPlayers.remove(p.getName());
-                p.sendMessage(Main.prefix + " §CUnvanished.");
+                p.sendMessage("§CUnvanished.");
             }else{
                 for(Player pl : Bukkit.getOnlinePlayers()){
                     pl.hidePlayer(this.plugin, p);
                 }
                 vanishedPlayers.add(p.getName());
-                p.sendMessage(Main.prefix + " §6Vanished.");
+                p.sendMessage("§6Vanished.");
             }
 
         }else{

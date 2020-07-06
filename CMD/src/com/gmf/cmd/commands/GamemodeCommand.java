@@ -19,7 +19,7 @@ public class GamemodeCommand implements Listener {
             if(p.hasPermission("cmd.gamemode")){
                 e.setCancelled(true);
                 if(e.getMessage().split(" ").length <= 1){
-                    p.sendMessage(Main.prefix + " §c/gm §7[survival(0)/creative(1)/adventure(2)/spectator(3)]");
+                    p.sendMessage("§c/gm §7[survival(0)/creative(1)/adventure(2)/spectator(3)]");
                 }else{
                     if(e.getMessage().split(" ")[1].toLowerCase().equals("0") || e.getMessage().split(" ")[1].toLowerCase().equals("survival")){
                         p.setGameMode(GameMode.SURVIVAL);
