@@ -23,23 +23,14 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Main extends JavaPlugin implements PluginMessageListener {
+public class Main extends JavaPlugin {
 
     public static List<ItemStack> itemList = new ArrayList<ItemStack>();
 
     @Override
     public void onEnable(){
         super.onEnable();
-        Bukkit.getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
-        this.getServer().getMessenger().registerIncomingPluginChannel(this, "BungeeCord", this);
-        ByteArrayDataOutput out = ByteStreams.newDataOutput();
-        out.writeUTF("PlayerCount");
-        out.writeUTF("Lobby");
-
-        Player player = Iterables.getFirst(Bukkit.getOnlinePlayers(), null);
-
-        player.sendPluginMessage(this, "BungeeCord", out.toByteArray());
-
+        getServer().getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
         PluginManager pm = getServer().getPluginManager();
         registerPermissions(pm);
         fillItemList();
@@ -95,22 +86,6 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         pm.registerEvents(new CancelPlayerInteraction(), this);
         pm.registerEvents(new PlayerJoin(), this);
         pm.registerEvents(new PlayerQuit(),this);
-        pm.registerEvents(new CompassInteraction(this), this);
-        pm.registerEvents(new PlayerMove(), this);
-    }
-
-    @Override
-    public void onPluginMessageReceived(String channel, Player player, byte[] message) {
-        if (!channel.equals("BungeeCord")) {
-            return;
-        }
-
-        ByteArrayDataInput in = ByteStreams.newDataInput(message);
-        String subchannel = in.readUTF();
-
-        if (subchannel.equals("Forward")) {
-
-        }
-
+        pm.registerEvents(new ServerSelector(this), this);
     }
 }

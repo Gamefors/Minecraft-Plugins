@@ -20,8 +20,7 @@ public class PlayerJoin implements Listener {
         e.setJoinMessage("§a>>>§f " + p.getName());
         p.teleport(new Location(Bukkit.getWorld("world"), 0.5, 1, 0.5));
         Inventory pInv = p.getInventory();
-        pInv.setItem(0, Main.itemList.get(0));
-
+        pInv.setItem(4, Main.itemList.get(0));
         TextComponent msg = new TextComponent("Optifine für die 1.16.1 (Mirror Link) Click!");
         msg.setColor(ChatColor.LIGHT_PURPLE);
         msg.setBold(true);
@@ -31,7 +30,5 @@ public class PlayerJoin implements Listener {
         p.sendMessage("");
         p.spigot().sendMessage(msg);
         p.sendMessage("");
-
     }
-
 }

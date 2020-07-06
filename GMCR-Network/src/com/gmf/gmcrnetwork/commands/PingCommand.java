@@ -17,7 +17,6 @@ public class PingCommand extends Command {
 
         if (commandSender instanceof ProxiedPlayer) {
             final ProxiedPlayer p = (ProxiedPlayer) commandSender;
-
             p.sendMessage(new TextComponent(Main.prefix + " Your ping is: §a" +  p.getPing() + "§fms."));
         }
     }
