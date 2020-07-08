@@ -15,9 +15,6 @@ public class Enchant implements Listener {
 
     HashMap<String, String> lastItemPickedUp = new HashMap<>();
     boolean enchanted = false;
-    public Enchant(){
-
-    }
 
     @EventHandler
     public void inventoryClickEvent(InventoryClickEvent e){
@@ -31,19 +28,20 @@ public class Enchant implements Listener {
             ItemStack selectedEnchant = e.getCurrentItem();
             if(selectedEnchant.getType().name().equals("PAPER")) {
                 List<String> lore = selectedEnchant.getItemMeta().getLore();
-                p.sendMessage("Enchantment: " + lore.get(0));
                 lastItemPickedUp.put(selectedEnchant.getType().name(),lore.get(0));
 
             }else if(selectedEnchant.getType().name().equals("NETHERITE_SWORD") && lastItemPickedUp.get("PAPER") != null) {
-                e.setCancelled(true);
+
                 ItemMeta iM = e.getCurrentItem().getItemMeta();
                 List<String> lore = new ArrayList<>();
                 lore.add(lastItemPickedUp.get("PAPER"));
                 iM.setLore(lore);
                 e.getCurrentItem().setItemMeta(iM);
                 p.sendMessage("Enchanted Netherite Sword Succsefully!");
-                enchanted = true;
+
+                e.setCancelled(true);
                 lastItemPickedUp.clear();
+                enchanted = true;
             }else{
                 lastItemPickedUp.clear();
             }
