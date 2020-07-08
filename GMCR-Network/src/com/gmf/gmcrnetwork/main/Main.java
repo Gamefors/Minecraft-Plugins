@@ -87,9 +87,11 @@ public class Main extends Plugin {
 
         for (String name : directories) {
             if(!ProxyServer.getInstance().getServers().containsKey(name)){
+                System.out.println("added new server with name: " + name + " and port: " + port + "                        !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
                 addServer(name, new InetSocketAddress(port));
+                ServerStatus.put(name, false);
+                port++;
             }
-            port++;
         }
 
         ProxyServer.getInstance().getServers().forEach((s, serverInfo) -> {
@@ -99,9 +101,9 @@ public class Main extends Plugin {
                 ServerStatus.replace(s, false);
             }
         });
-        //ServerStatus.forEach((s, aBoolean) -> {
-        //    System.out.println("Server: " + s + " Status: " + aBoolean);
-        //});
+        ServerStatus.forEach((s, aBoolean) -> {
+            System.out.println("Server: " + s + " Status: " + aBoolean);
+        });
         getProxy().getPlayers().forEach(p -> {
             Main.ServerStatus.forEach((s, aBoolean) -> Main.sendServerStatus(p, p.getServer(), s, String.valueOf(aBoolean)));
         });

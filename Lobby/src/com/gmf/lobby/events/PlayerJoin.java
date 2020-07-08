@@ -5,6 +5,7 @@ import net.md_5.bungee.api.ChatColor;
 import net.md_5.bungee.api.chat.ClickEvent;
 import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.Bukkit;
+import org.bukkit.GameMode;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -18,6 +19,7 @@ public class PlayerJoin implements Listener {
     public void playerJoinEvent(PlayerJoinEvent e){
         Player p = e.getPlayer();
         e.setJoinMessage("§a>>>§f " + p.getName());
+        p.setGameMode(GameMode.ADVENTURE);
         p.teleport(new Location(Bukkit.getWorld("world"), 0.5, 1, 0.5));
         Inventory pInv = p.getInventory();
         pInv.setItem(4, Main.itemList.get(0));

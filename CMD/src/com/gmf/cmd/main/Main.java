@@ -38,6 +38,8 @@ public class Main extends JavaPlugin {
 
         getCommand("vanish").setExecutor(new VanishCommand(this));
         getCommand("speed").setExecutor(new SpeedCommand());
+        getCommand("day").setExecutor(new TimeCommand());
+        getCommand("night").setExecutor(new TimeCommand());
     }
 
 }

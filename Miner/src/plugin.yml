@@ -1,0 +1,16 @@
+name: Miner
+version: 1.0
+api-version: 1.16
+author: GMF
+
+main: com.gmf.miner.main.Main
+
+commands:
+
+  setskill:
+    aliases: [ss]
+
+  giveenchant:
+    aliases: [ge]
+
+permissions:
