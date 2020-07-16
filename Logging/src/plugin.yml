@@ -1,9 +1,0 @@
-name: Logging
-version: 1.0
-api-version: 1.15
-author: GMF
-
-main: com.gmf.logging.main.Main
-
-commands:
-

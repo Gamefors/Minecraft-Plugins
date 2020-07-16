@@ -1,0 +1,30 @@
+main: com.gmf.cmd.main.Main
+
+name: CMD
+
+version: 1.0.0
+
+api-version: 1.16
+
+load: POSTWORLD
+
+author: GMF
+
+commands:
+
+  gm:
+
+  vanish:
+    aliases: [v]
+
+  speed:
+
+  day:
+
+  night:
+
+  rain:
+
+  sun:
+
+permissions:
