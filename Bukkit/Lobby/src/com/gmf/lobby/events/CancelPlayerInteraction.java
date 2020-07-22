@@ -49,7 +49,7 @@ public class CancelPlayerInteraction implements Listener {
     public void playerMoveEvent(PlayerMoveEvent e) {
         if (!BuildCommand.builders.contains(e.getPlayer().getName())) {
             if(e.getPlayer().getLocation().getBlockY() < 0){
-                e.getPlayer().teleport(new Location(e.getPlayer().getWorld(), 0 ,1 ,0));
+                e.getPlayer().teleport(new Location(e.getPlayer().getWorld(), 0.5,1 ,0.5));
             }
         }
     }

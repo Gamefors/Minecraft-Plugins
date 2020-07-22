@@ -13,4 +13,11 @@ commands:
   lobby:
     aliases: [l,hub]
 
+  addServer:
+    aliases: [as]
+
+  removeServer:
+    aliases: [rs]
+
   ping:
+    aliases: [p]

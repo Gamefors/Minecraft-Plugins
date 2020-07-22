@@ -23,11 +23,11 @@ public class PlayerJoin implements Listener {
         p.teleport(new Location(Bukkit.getWorld("world"), 0.5, 1, 0.5));
         Inventory pInv = p.getInventory();
         pInv.setItem(4, Main.itemList.get(0));
-        TextComponent msg = new TextComponent("Optifine für die 1.16.1 (Mirror Link) Click!");
+        TextComponent msg = new TextComponent("Optifine");
         msg.setColor(ChatColor.LIGHT_PURPLE);
         msg.setBold(true);
         msg.setUnderlined(true);
-        msg.setClickEvent( new ClickEvent( ClickEvent.Action.OPEN_URL, "http://optifine.net/adloadx?f=preview_OptiFine_1.16.1_HD_U_G2_pre1.jar" ) );
+        msg.setClickEvent( new ClickEvent( ClickEvent.Action.OPEN_URL, "https://optifine.net/downloads" ) );
         p.sendMessage("§nNützliche Links:");
         p.sendMessage("");
         p.spigot().sendMessage(msg);

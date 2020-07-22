@@ -9,7 +9,7 @@ import net.md_5.bungee.api.plugin.Command;
 public class PingCommand extends Command {
 
     public PingCommand() {
-        super("ping");
+        super("ping", "", "p");
     }
 
     @Override
@@ -17,7 +17,15 @@ public class PingCommand extends Command {
 
         if (commandSender instanceof ProxiedPlayer) {
             final ProxiedPlayer p = (ProxiedPlayer) commandSender;
-            p.sendMessage(new TextComponent(Main.prefix + " Your ping is: §a" +  p.getPing() + "§fms."));
+            int ping = p.getPing();
+            char color = 'a';
+            if(ping > 40){
+                color = 'e';
+            }
+            if(ping > 80){
+                color = 'c';
+            }
+            p.sendMessage(new TextComponent("Your ping is: §" + color + ping + "§fms."));
         }
     }
 }

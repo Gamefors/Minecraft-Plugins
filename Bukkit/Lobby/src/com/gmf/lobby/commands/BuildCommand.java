@@ -1,5 +1,6 @@
 package com.gmf.lobby.commands;
 
+import org.bukkit.GameMode;
 import org.bukkit.Location;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -22,9 +23,11 @@ public class BuildCommand implements CommandExecutor, Listener {
         if(p.hasPermission("lobby.build")){
             if(builders.contains(p.getName())){
                 builders.remove(p.getName());
+                p.setGameMode(GameMode.ADVENTURE);
                 p.sendMessage("You are §cnot allowed §fto build anymore.");
             }else{
                 builders.add(p.getName());
+                p.setGameMode(GameMode.CREATIVE);
                 p.sendMessage("You are now §aallowed §fto build.");
             }
         }else{

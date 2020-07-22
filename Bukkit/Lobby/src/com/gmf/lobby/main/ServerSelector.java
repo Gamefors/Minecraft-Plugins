@@ -57,6 +57,10 @@ public class ServerSelector implements Listener, PluginMessageListener {
                 }
             }
         }
+        if (subChannel.equalsIgnoreCase("removeServer")){
+            String server = in.readUTF();
+            this.server.remove(server);
+        }
     }
 
     @EventHandler

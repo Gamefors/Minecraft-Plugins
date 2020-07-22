@@ -9,6 +9,6 @@ public class PlayerConnect implements Listener {
 
     @EventHandler
     public void PlayerConnectEvent(ServerConnectedEvent e){
-        Main.ServerStatus.forEach((s, aBoolean) -> Main.sendServerStatus(e.getPlayer(), e.getServer(), s, String.valueOf(aBoolean)));
+        Main.statusOfServers.forEach((serverName, serverStatus) -> Main.sendServerStatus(e.getServer(), serverName, String.valueOf(serverStatus)));
     }
 }
