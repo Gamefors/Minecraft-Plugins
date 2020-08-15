@@ -4,6 +4,7 @@ import com.gmf.lobby.commands.BuildCommand;
 import com.gmf.lobby.utils.ItemBuilder;
 import com.google.common.io.ByteArrayDataInput;
 import com.google.common.io.ByteStreams;
+import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.craftbukkit.libs.org.apache.commons.io.output.ByteArrayOutputStream;
@@ -15,6 +16,8 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.permissions.Permission;
+import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.messaging.PluginMessageListener;
 
 import java.io.DataOutputStream;
@@ -24,11 +27,13 @@ import java.util.HashMap;
 public class ServerSelector implements Listener, PluginMessageListener {
 
     Main plugin;
+    PluginManager pm;
 
     HashMap<String, ItemStack> server = new HashMap<>();
 
-    public ServerSelector(Main plugin){
+    public ServerSelector(Main plugin, PluginManager pm){
         this.plugin = plugin;
+        this.pm = pm;
         this.plugin.getServer().getMessenger().registerIncomingPluginChannel(this.plugin, "my:lobby", this);
     }
 
@@ -50,6 +55,7 @@ public class ServerSelector implements Listener, PluginMessageListener {
                     this.server.replace(server, new ItemBuilder(Material.RED_STAINED_GLASS).setDisplayName("§b§6" + server + " §4[Offline]").toItemStack());
                 }
             }else{
+                    pm.addPermission(new Permission("bungee.connect." + server));
                 if(status.equals("true")){
                     this.server.put(server, new ItemBuilder(Material.GREEN_STAINED_GLASS).setDisplayName("§b§6" + server + " §2[Online]").toItemStack());
                 }else{
@@ -100,12 +106,16 @@ public class ServerSelector implements Listener, PluginMessageListener {
                     ByteArrayOutputStream b = new ByteArrayOutputStream();
                     DataOutputStream out = new DataOutputStream(b);
                     String serverName = s;
-                    try {
-                        out.writeUTF("Connect");
-                        out.writeUTF(serverName);
-                        p.sendPluginMessage(this.plugin, "BungeeCord", b.toByteArray());
-                    } catch (IOException ex) {
-                        p.sendMessage(String.valueOf(ex));
+                    if(p.hasPermission("bungee.connect." + serverName)){
+                        try {
+                            out.writeUTF("Connect");
+                            out.writeUTF(serverName);
+                            p.sendPluginMessage(this.plugin, "BungeeCord", b.toByteArray());
+                        } catch (IOException ex) {
+                            p.sendMessage(String.valueOf(ex));
+                        }
+                    }else{
+                        p.sendMessage("§cDu hast keine Berechtigung diesen Server zu betreten.");
                     }
                 }else{
                     if(!BuildCommand.builders.contains(p.getName())){

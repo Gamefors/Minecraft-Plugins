@@ -86,6 +86,6 @@ public class Main extends JavaPlugin {
         pm.registerEvents(new CancelPlayerInteraction(), this);
         pm.registerEvents(new PlayerJoin(), this);
         pm.registerEvents(new PlayerQuit(),this);
-        pm.registerEvents(new ServerSelector(this), this);
+        pm.registerEvents(new ServerSelector(this, pm), this);
     }
 }

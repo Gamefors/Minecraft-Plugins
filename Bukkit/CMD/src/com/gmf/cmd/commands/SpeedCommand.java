@@ -1,6 +1,5 @@
 package com.gmf.cmd.commands;
 
-import com.gmf.cmd.main.Main;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;

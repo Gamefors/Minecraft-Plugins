@@ -4,7 +4,8 @@ import com.gmf.gmcrnetwork.commands.LobbyCommand;
 import com.gmf.gmcrnetwork.commands.PingCommand;
 import com.gmf.gmcrnetwork.commands.addServerCommand;
 import com.gmf.gmcrnetwork.commands.removeServerCommand;
-import com.gmf.gmcrnetwork.events.PlayerConnect;
+import com.gmf.gmcrnetwork.events.PlayerConnected;
+import com.gmf.gmcrnetwork.events.PlayerTryConnect;
 import com.google.common.io.ByteArrayDataOutput;
 import com.google.common.io.ByteStreams;
 import net.md_5.bungee.api.ProxyServer;
@@ -61,6 +62,7 @@ public class Main extends Plugin {
         serverNames = getServerNames();
         for (String name : serverNames) {
             addServer(name, new InetSocketAddress(getServerPort(name)));
+
             statusOfServers.put(name, false);
         }
         registerEvents();
@@ -91,7 +93,8 @@ public class Main extends Plugin {
     }
 
     private void registerEvents() {
-        getProxy().getPluginManager().registerListener(this, new PlayerConnect());
+        getProxy().getPluginManager().registerListener(this, new PlayerConnected());
+        getProxy().getPluginManager().registerListener(this, new PlayerTryConnect());
     }
 
     private boolean isReachable(InetSocketAddress address) {

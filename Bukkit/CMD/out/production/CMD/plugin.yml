@@ -27,4 +27,6 @@ commands:
 
   sun:
 
+  createCL:
+
 permissions:
