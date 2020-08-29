@@ -1,9 +1,6 @@
 package com.gmf.gmcrnetwork.main;
 
-import com.gmf.gmcrnetwork.commands.LobbyCommand;
-import com.gmf.gmcrnetwork.commands.PingCommand;
-import com.gmf.gmcrnetwork.commands.addServerCommand;
-import com.gmf.gmcrnetwork.commands.removeServerCommand;
+import com.gmf.gmcrnetwork.commands.*;
 import com.gmf.gmcrnetwork.events.PlayerConnected;
 import com.gmf.gmcrnetwork.events.PlayerTryConnect;
 import com.google.common.io.ByteArrayDataOutput;
@@ -27,6 +24,7 @@ public class Main extends Plugin {
     public static List<String> addedServers = new ArrayList<>();
     private static String serverDirectory = "/home/minecraft/GMCR-Network/Server";
     private static String[] serverNames;
+    public static HashMap<String, InetSocketAddress> portBindings = new HashMap<>();
     private static long updateStatusOfServersInterval = 30L; //in seconds.
     public int getServerPort(String serverName){
         File serverProperties = new File(serverDirectory + "/" + serverName + "/server.properties");
@@ -62,7 +60,7 @@ public class Main extends Plugin {
         serverNames = getServerNames();
         for (String name : serverNames) {
             addServer(name, new InetSocketAddress(getServerPort(name)));
-
+            portBindings.put(name, new InetSocketAddress(getServerPort(name)));
             statusOfServers.put(name, false);
         }
         registerEvents();
@@ -115,6 +113,7 @@ public class Main extends Plugin {
         pluginManager.registerCommand(this, new PingCommand());
         pluginManager.registerCommand(this, new addServerCommand());
         pluginManager.registerCommand(this, new removeServerCommand());
+        pluginManager.registerCommand(this, new PortBindingsCommand());
     }
 
 

@@ -21,3 +21,6 @@ commands:
 
   ping:
     aliases: [p]
+
+  portBindings:
+    aliases: [pb]
