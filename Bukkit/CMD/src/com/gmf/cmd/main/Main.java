@@ -1,9 +1,10 @@
 package com.gmf.cmd.main;
 
 import com.gmf.cmd.commands.*;
+import com.gmf.cmd.events.PlayerDeath;
 import com.gmf.cmd.events.PlayerJoin;
 import com.gmf.cmd.events.PlayerQuit;
-import net.minecraft.server.v1_16_R1.EntityPlayer;
+import net.minecraft.server.v1_16_R3.EntityPlayer;
 import org.bukkit.permissions.Permission;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -29,13 +30,14 @@ public class Main extends JavaPlugin {
         pm.addPermission(new Permission("cmd.gamemode"));
         pm.addPermission(new Permission("cmd.reload"));
         pm.addPermission(new Permission("cmd.speed"));
-        pm.addPermission(new Permission("cmd.vanish"));
+      //  pm.addPermission(new Permission("cmd.vanish"));
         pm.addPermission(new Permission("cmd.createCL"));
     }
 
     private void registerEvents(PluginManager pm) {
         pm.registerEvents(new PlayerJoin(this),this);
         pm.registerEvents(new PlayerQuit(),this);
+        pm.registerEvents(new PlayerDeath(),this);
 
     }
 
@@ -43,7 +45,7 @@ public class Main extends JavaPlugin {
         pm.registerEvents(new ReloadCommand(getServer()), this);
         pm.registerEvents(new GamemodeCommand(), this);
 
-        getCommand("vanish").setExecutor(new VanishCommand(this));
+        //getCommand("vanish").setExecutor(new VanishCommand(this));
         getCommand("speed").setExecutor(new SpeedCommand());
         getCommand("day").setExecutor(new TimeCommand());
         getCommand("night").setExecutor(new TimeCommand());
