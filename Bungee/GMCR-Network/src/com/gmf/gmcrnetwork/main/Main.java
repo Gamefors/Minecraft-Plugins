@@ -2,6 +2,7 @@ package com.gmf.gmcrnetwork.main;
 
 import com.gmf.gmcrnetwork.commands.*;
 import com.gmf.gmcrnetwork.events.PlayerConnected;
+import com.gmf.gmcrnetwork.events.PlayerKick;
 import com.gmf.gmcrnetwork.events.PlayerTryConnect;
 import com.gmf.gmcrnetwork.objects.ServerInfo;
 import com.google.common.io.ByteArrayDataOutput;
@@ -108,6 +109,7 @@ public class Main extends Plugin {
     private void registerEvents() {
         getProxy().getPluginManager().registerListener(this, new PlayerConnected());
         getProxy().getPluginManager().registerListener(this, new PlayerTryConnect());
+        getProxy().getPluginManager().registerListener(this, new PlayerKick(this));
     }
 
     private boolean isReachable(InetSocketAddress address) {
