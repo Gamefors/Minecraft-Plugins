@@ -3,6 +3,7 @@ package com.gmf.gmcrnetwork.main;
 import com.gmf.gmcrnetwork.commands.*;
 import com.gmf.gmcrnetwork.events.PlayerConnected;
 import com.gmf.gmcrnetwork.events.PlayerTryConnect;
+import com.gmf.gmcrnetwork.objects.ServerInfo;
 import com.google.common.io.ByteArrayDataOutput;
 import com.google.common.io.ByteStreams;
 import net.md_5.bungee.api.ProxyServer;
@@ -19,27 +20,26 @@ import java.util.stream.Collectors;
 
 public class Main extends Plugin {
 
-    public static Map<String, Boolean> statusOfServers = new HashMap<>();
+    private static final String serversDirectory = "/home/minecraft/Inf/Server";
+    private static final long updateInterval = 15L;
+
+    public static List<ServerInfo> serverList = new ArrayList<>();
     public static List<String> removedServers = new ArrayList<>();
-    public static List<String> addedServers = new ArrayList<>();
-    private static String serverDirectory = "/home/minecraft/GMCR-Network/Server";
-    private static String[] serverNames;
-    public static HashMap<String, InetSocketAddress> portBindings = new HashMap<>();
-    private static long updateStatusOfServersInterval = 30L; //in seconds.
+
     public int getServerPort(String serverName){
-        File serverProperties = new File(serverDirectory + "/" + serverName + "/server.properties");
+        File serverProperties = new File(serversDirectory + "/" + serverName + "/server.properties");
         try {
             BufferedReader br = new BufferedReader(new FileReader(serverProperties));
             String[] serverPropertiesString = br.lines().collect(Collectors.joining()).split("server-port=");
             return Integer.parseInt(serverPropertiesString[1].substring(0,5));
         } catch (IOException e) {
-            e.printStackTrace();
+            getLogger().warning(serverName + " has no server.properties to get port from therefore has not been added to sub servers.");
         }
         return 0;
     }
 
     public String[] getServerNames(){
-        File file = new File(serverDirectory);
+        File file = new File(serversDirectory);
         String[] directories = file.list(new FilenameFilter() {
             @Override
             public boolean accept(File current, String name) {
@@ -57,37 +57,52 @@ public class Main extends Plugin {
     @Override
     public void onEnable() {
         getProxy().registerChannel("my:lobby");
-        serverNames = getServerNames();
-        for (String name : serverNames) {
-            addServer(name, new InetSocketAddress(getServerPort(name)));
-            portBindings.put(name, new InetSocketAddress(getServerPort(name)));
-            statusOfServers.put(name, false);
+        String[] serverNames = getServerNames();
+
+        for (String serverName : serverNames) {
+            int serverPort = getServerPort(serverName);
+            if(serverPort != 0){
+                ServerInfo serverInfo = new ServerInfo(serverName, serverPort, false);
+                addServer(serverInfo);
+                serverList.add(serverInfo);
+            }
         }
+
         registerEvents();
         registerClasses();
-        getProxy().getScheduler().schedule(this, this::updateServerStatus, updateStatusOfServersInterval, updateStatusOfServersInterval, TimeUnit.SECONDS);
+
+        getProxy().getScheduler().schedule(this, this::updateServerStatus, updateInterval, updateInterval, TimeUnit.SECONDS);
     }
 
     public void updateServerStatus(){
-        serverNames = getServerNames();
-        for (String name : serverNames) {
-            if(!ProxyServer.getInstance().getServers().containsKey(name)){
-                if(!removedServers.contains(name)){
-                    addServer(name, new InetSocketAddress(getServerPort(name)));
-                    statusOfServers.put(name, false);
+        String[] serverNames = getServerNames();
+        for (String serverName : serverNames) {
+            if(!ProxyServer.getInstance().getServers().containsKey(serverName)){
+                if(!removedServers.contains(serverName)){
+                    int serverPort = getServerPort(serverName);
+                    if(serverPort == 0) return;
+                    ServerInfo serverInfo = new ServerInfo(serverName, serverPort, false);
+                    addServer(serverInfo);
+                    serverList.add(serverInfo);
                 }
             }
         }
         ProxyServer.getInstance().getServers().forEach((serverName, serverInfo) -> {
-            if(serverName.equals("lobby")){
-                serverName = "Lobby";
-            }
-            statusOfServers.replace(serverName, isReachable((InetSocketAddress) serverInfo.getSocketAddress()));
+            serverList.forEach(server -> {
+                if(server.name.equals(serverName)) server.status = isReachable((InetSocketAddress)serverInfo.getSocketAddress());
+            });
         });
 
-        //statusOfServers.forEach((s, aBoolean) -> System.out.println("Server: " + s + " Status: " + aBoolean));
+        serverList.forEach(serverInfo -> {
+            getLogger().info("Server: " + serverInfo.name + ":" + serverInfo.port + " Status: " + serverInfo.status);
+        });
 
-        getProxy().getPlayers().forEach(p -> Main.statusOfServers.forEach((serverName, serverStatus) -> Main.sendServerStatus(p.getServer(), serverName, String.valueOf(serverStatus))));
+        getProxy().getPlayers().forEach(player -> {
+            Main.serverList.forEach(serverInfo ->{
+                Main.sendServerStatus(player.getServer(), serverInfo);
+            });
+        });
+
     }
 
     private void registerEvents() {
@@ -117,8 +132,8 @@ public class Main extends Plugin {
     }
 
 
-    public static void addServer(String name, InetSocketAddress address) {
-        ProxyServer.getInstance().getServers().put(name, ProxyServer.getInstance().constructServerInfo(name, address, "GMCR-Network Sub-Server", false));
+    public static void addServer(ServerInfo serverInfo) {
+        ProxyServer.getInstance().getServers().put(serverInfo.name, ProxyServer.getInstance().constructServerInfo(serverInfo.name, new InetSocketAddress((serverInfo.port)), "GMCR-Network Sub-Server", false));
     }
 
     public static void removeServer(String name, Server pServer) {
@@ -129,13 +144,13 @@ public class Main extends Plugin {
         pServer.getInfo().sendData( "my:lobby", out.toByteArray() );
     }
 
-    public static void sendServerStatus(Server pServer, String server, String status)
+    public static void sendServerStatus(Server pServer, ServerInfo serverInfo)
     {
-        if(!server.equals("Lobby")){
+        if(serverInfo.port != 25561){
             ByteArrayDataOutput out = ByteStreams.newDataOutput();
             out.writeUTF("serverstatus");
-            out.writeUTF(server);
-            out.writeUTF(status);
+            out.writeUTF(serverInfo.name);
+            out.writeUTF(String.valueOf(serverInfo.status));
             pServer.getInfo().sendData( "my:lobby", out.toByteArray() );
         }
     }

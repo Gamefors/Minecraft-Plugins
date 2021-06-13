@@ -11,6 +11,8 @@ public class PlayerConnected implements Listener {
 
     @EventHandler
     public void PlayerConnectedEvent(ServerConnectedEvent e){
-        Main.statusOfServers.forEach((serverName, serverStatus) -> Main.sendServerStatus(e.getServer(), serverName, String.valueOf(serverStatus)));
+        Main.serverList.forEach(server -> {
+            Main.sendServerStatus(e.getServer(), server);
+        });
     }
 }

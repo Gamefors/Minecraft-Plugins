@@ -15,8 +15,9 @@ public class PortBindingsCommand extends Command {
     @Override
     public void execute(CommandSender commandSender, String[] strings) {
         ProxiedPlayer p = (ProxiedPlayer) commandSender;
-        Main.portBindings.forEach((name, address) -> {
-            p.sendMessage(new TextComponent(name + ":" + address.getPort()));
+        if(!p.hasPermission("gmcr.portbindings")) return;
+        Main.serverList.forEach(server -> {
+            p.sendMessage(new TextComponent(server.name + ":" + server.port));
         });
     }
 }

@@ -17,11 +17,18 @@ public class removeServerCommand extends Command {
 
         if (commandSender instanceof ProxiedPlayer) {
             final ProxiedPlayer p = (ProxiedPlayer) commandSender;
+            if(!p.hasPermission("gmcr.removeserver")) return;
             if(strings.length >= 1){
                 String serverName = strings[0];
                 Main.removedServers.add(serverName);
                 Main.removeServer(serverName, p.getServer());
-                Main.statusOfServers.remove(serverName);
+
+                //TODO: this throws error because of removing while iterating
+                Main.serverList.forEach(serverInfo -> {
+                    if(serverInfo.name.equals(serverName)){
+                        Main.serverList.remove(serverInfo);
+                    }
+                });
                 p.sendMessage(new TextComponent("Removed server: " + serverName));
             }else{
                 p.sendMessage(new TextComponent("§c/removeServer [name]"));

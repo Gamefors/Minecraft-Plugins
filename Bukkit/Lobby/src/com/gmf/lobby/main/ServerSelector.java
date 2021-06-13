@@ -13,6 +13,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.event.inventory.InventoryType;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
@@ -76,7 +77,7 @@ public class ServerSelector implements Listener, PluginMessageListener {
         if(selectedItem.hasItemMeta()){
             if (e.getAction().equals(Action.RIGHT_CLICK_AIR) || e.getAction().equals(Action.RIGHT_CLICK_BLOCK)) {
                 if (selectedItem.getItemMeta().getDisplayName().equals(Main.itemList.get(0).getItemMeta().getDisplayName())) {
-                    Inventory pInv = Bukkit.createInventory(null, 9, "Server selector");
+                    Inventory pInv = Bukkit.createInventory(null, InventoryType.CHEST, "Server selector");
                     this.server.forEach((s, itemStack) -> pInv.addItem(itemStack));
                     p.openInventory(pInv);
                 }else{

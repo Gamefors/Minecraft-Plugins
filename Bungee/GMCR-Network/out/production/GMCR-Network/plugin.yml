@@ -15,12 +15,15 @@ commands:
 
   addServer:
     aliases: [as]
+    permission: gmcr.addserver
 
   removeServer:
     aliases: [rs]
+    permission: gmcr.removeserver
 
   ping:
     aliases: [p]
 
   portBindings:
     aliases: [pb]
+    permission: gmcr.portbindings
