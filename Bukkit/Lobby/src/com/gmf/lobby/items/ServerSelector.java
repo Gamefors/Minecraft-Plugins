@@ -1,6 +1,7 @@
-package com.gmf.lobby.main;
+package com.gmf.lobby.items;
 
 import com.gmf.lobby.commands.BuildCommand;
+import com.gmf.lobby.main.Main;
 import com.gmf.lobby.utils.ItemBuilder;
 import com.google.common.io.ByteArrayDataInput;
 import com.google.common.io.ByteStreams;
@@ -107,7 +108,7 @@ public class ServerSelector implements Listener, PluginMessageListener {
                     ByteArrayOutputStream b = new ByteArrayOutputStream();
                     DataOutputStream out = new DataOutputStream(b);
                     String serverName = s;
-                    if(p.hasPermission("bungee.connect." + serverName)){
+                //    if(p.hasPermission("bungee.connect." + serverName)){
                         try {
                             out.writeUTF("Connect");
                             out.writeUTF(serverName);
@@ -115,9 +116,9 @@ public class ServerSelector implements Listener, PluginMessageListener {
                         } catch (IOException ex) {
                             p.sendMessage(String.valueOf(ex));
                         }
-                    }else{
-                        p.sendMessage("§cDu hast keine Berechtigung diesen Server zu betreten.");
-                    }
+                //    }else{
+                //        p.sendMessage("§cDu hast keine Berechtigung diesen Server zu betreten.");
+                //    }
                 }else{
                     if(!BuildCommand.builders.contains(p.getName())){
                         e.setCancelled(true);
