@@ -15,43 +15,29 @@ public class CancelPlayerInteraction implements Listener {
 
     @EventHandler
     public void playerSwapHandItemsEvent(PlayerSwapHandItemsEvent e){
-        if(!BuildCommand.builders.contains(e.getPlayer().getName())){
-            e.setCancelled(true);
-        }
+        if(!BuildCommand.builders.contains(e.getPlayer().getName())) e.setCancelled(true);
     }
 
     @EventHandler
     public void playerDropItemEvent(PlayerDropItemEvent e){
-        if(!BuildCommand.builders.contains(e.getPlayer().getName())){
-            e.setCancelled(true);
-        }
+        if(!BuildCommand.builders.contains(e.getPlayer().getName())) e.setCancelled(true);
     }
 
     @EventHandler
     public void entityDamageEvent(EntityDamageEvent e){
         if(e.getEntity() instanceof Player){
-            if(!BuildCommand.builders.contains(e.getEntity().getName())){
-                e.setCancelled(true);
-            }
+            if(!BuildCommand.builders.contains(e.getEntity().getName())) e.setCancelled(true);
         }
     }
 
     @EventHandler
     public void entityPickupItemEvent(EntityPickupItemEvent e) {
-        if (e.getEntity() instanceof Player) {
-            if (!BuildCommand.builders.contains(e.getEntity().getName())) {
-                e.setCancelled(true);
-            }
-        }
+        if (e.getEntity() instanceof Player) if (!BuildCommand.builders.contains(e.getEntity().getName())) e.setCancelled(true);
     }
 
     @EventHandler
     public void playerMoveEvent(PlayerMoveEvent e) {
-        if (!BuildCommand.builders.contains(e.getPlayer().getName())) {
-            if(e.getPlayer().getLocation().getBlockY() < 0){
-                e.getPlayer().teleport(new Location(e.getPlayer().getWorld(), 0.5,1 ,0.5));
-            }
-        }
+        if (!BuildCommand.builders.contains(e.getPlayer().getName())) if(e.getPlayer().getLocation().getBlockY() < 0) e.getPlayer().teleport(new Location(e.getPlayer().getWorld(), 0.5,1 ,0.5));
     }
 
 }

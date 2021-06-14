@@ -43,7 +43,6 @@ public class Main extends JavaPlugin {
         itemList.add(new ItemBuilder(Material.COMPASS).setDisplayName("§b§6Server selector §7(Right click)").addEnchant(Enchantment.ARROW_FIRE,1).addItemFlags(ItemFlag.HIDE_ENCHANTS).toItemStack());
     }
 
-
     private void setWorldSettings() {
         World lobbyWorld = getServer().getWorld("world");
         setGamerules(lobbyWorld);
