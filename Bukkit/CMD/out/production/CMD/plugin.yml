@@ -14,9 +14,6 @@ commands:
 
   gm:
 
-  vanish:
-    aliases: [v]
-
   speed:
 
   day:
@@ -26,7 +23,5 @@ commands:
   rain:
 
   sun:
-
-  createCL:
 
 permissions:
