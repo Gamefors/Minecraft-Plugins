@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="OfflineServerAuth">
+    <output-path>$PROJECT_DIR$/out/artifacts/OfflineServerAuth</output-path>
+    <root id="archive" name="OfflineServerAuth.jar">
+      <element id="module-output" name="OfflineServerAuth" />
+    </root>
+  </artifact>
+</component>

@@ -1,0 +1,12 @@
+name: OfflineServerAuth
+version: 1.0
+api-version: 1.16
+author: GMF
+
+main: com.gmf.offlineserverauth.main.Main
+
+commands:
+
+  login:
+
+permissions:
